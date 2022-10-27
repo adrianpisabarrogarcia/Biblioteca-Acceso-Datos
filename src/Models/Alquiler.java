@@ -6,17 +6,17 @@ public class Alquiler {
 
     private int id;
     private int idUsuario;
-    private int idPelicula;
+    private int idLibro;
     private Date fechaAlquiler;
     private Date fechaDevolucion;
 
     public Alquiler() {
     }
 
-    public Alquiler(int id, int idUsuario, int idPelicula, Date fechaAlquiler, Date fechaDevolucion) {
+    public Alquiler(int id, int idUsuario, int idLibro, Date fechaAlquiler, Date fechaDevolucion) {
         this.id = id;
         this.idUsuario = idUsuario;
-        this.idPelicula = idPelicula;
+        this.idLibro = idLibro;
         this.fechaAlquiler = fechaAlquiler;
         this.fechaDevolucion = fechaDevolucion;
     }
@@ -37,12 +37,12 @@ public class Alquiler {
         this.idUsuario = idUsuario;
     }
 
-    public int getIdPelicula() {
-        return idPelicula;
+    public int getIdLibro() {
+        return idLibro;
     }
 
-    public void setIdPelicula(int idPelicula) {
-        this.idPelicula = idPelicula;
+    public void setIdLibro(int idLibro) {
+        this.idLibro = idLibro;
     }
 
     public Date getFechaAlquiler() {
@@ -66,7 +66,7 @@ public class Alquiler {
         return "Alquiler{" +
                 "id=" + id +
                 ", idUsuario=" + idUsuario +
-                ", idPelicula=" + idPelicula +
+                ", idLibro=" + idLibro +
                 ", fechaAlquiler=" + fechaAlquiler +
                 ", fechaDevolucion=" + fechaDevolucion +
                 '}';
