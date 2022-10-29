@@ -1,8 +1,9 @@
 package Models;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Alquiler {
+public class Alquiler implements Serializable {
 
     private int id;
     private int idUsuario;
