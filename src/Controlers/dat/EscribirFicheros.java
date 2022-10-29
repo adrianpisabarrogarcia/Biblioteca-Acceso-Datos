@@ -16,7 +16,7 @@ public class EscribirFicheros {
      * Escribe un fichero binario con el contenido de un ArrayList de String
      * @param arrayList - ArrayList de objetos de libros a escribir en el fichero
      */
-    public static void escribirFicheroLibro(ArrayList<Libro> arrayList) {
+    public static void escribirFicheroLibros(ArrayList<Libro> arrayList) {
         String nombreFichero = "libros.dat";
         try {
             //Crear flujo de salida
@@ -43,7 +43,7 @@ public class EscribirFicheros {
      * Escribe un fichero binario con el contenido de un ArrayList de String
      * @param arrayList - ArrayList de objetos de alquileres a escribir en el fichero
      */
-    public static void escribirFicheroAlquiler(ArrayList<Alquiler> arrayList) {
+    public static void escribirFicheroAlquileres(ArrayList<Alquiler> arrayList) {
         String nombreFichero = "alquileres.dat";
         try {
             //Crear flujo de salida
@@ -70,7 +70,7 @@ public class EscribirFicheros {
      * Escribe un fichero binario con el contenido de un ArrayList de String
      * @param arrayList - ArrayList de objetos de alquileres a escribir en el fichero
      */
-    public static void escribirFicheroUsuario(ArrayList<Usuario> arrayList) {
+    public static void escribirFicheroUsuarios(ArrayList<Usuario> arrayList) {
         String nombreFichero = "usuarios.dat";
         try {
             //Crear flujo de salida
