@@ -31,6 +31,7 @@ public class EscribirFicheros {
 
             //Cerrar flujos
             dataOS.close();
+            fileout.close();
         } catch (IOException e) {
             e.printStackTrace();
             System.out.println("Error al escribir el fichero");
@@ -58,6 +59,7 @@ public class EscribirFicheros {
 
             //Cerrar flujos
             dataOS.close();
+            fileout.close();
         } catch (IOException e) {
             e.printStackTrace();
             System.out.println("Error al escribir el fichero");
@@ -85,6 +87,7 @@ public class EscribirFicheros {
 
             //Cerrar flujos
             dataOS.close();
+            fileout.close();
         } catch (IOException e) {
             e.printStackTrace();
             System.out.println("Error al escribir el fichero");
