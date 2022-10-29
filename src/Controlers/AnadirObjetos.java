@@ -1,14 +1,20 @@
 package Controlers;
 
+import Controlers.dat.EscribirFicheros;
 import Models.Alquiler;
 import Models.Libro;
 import Models.Usuario;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Objects;
 
 public class AnadirObjetos {
 
+    /***
+     * Añade alquileres al arraylist alquileres y los guarda en el fichero alquileres.dat
+     * @return ArrayList<Alquiler>
+     */
     public static ArrayList<Alquiler> anadirAlquileres() {
 
         ArrayList<Alquiler> alquileres = new ArrayList<>();
@@ -63,9 +69,15 @@ public class AnadirObjetos {
         alquiler7.setIdUsuario(7);
         alquileres.add(alquiler7);
 
+        EscribirFicheros.escribirFicheroAlquileres(alquileres);
+
         return alquileres;
     }
 
+    /***
+     * Añade usuarios al arraylist usuarios y los guarda en el fichero usuarios.dat
+     * @return ArrayList<Usuario>
+     */
     public static ArrayList<Usuario> anadirUsuarios() {
         ArrayList<Usuario> usuarios = new ArrayList<>();
 
@@ -95,10 +107,15 @@ public class AnadirObjetos {
         Date fecha3 = new Date(1990, 12, 12);
         usuario3.setFechaNacimiento(fecha3);
 
+        EscribirFicheros.escribirFicheroUsuarios(usuarios);
 
         return usuarios;
     }
 
+    /***
+     * Añade libros al arraylist lirbos y los guarda en el fichero libros.dat
+     * @return ArrayList<Libro>
+     */
     public static ArrayList<Libro> anadirLibros() {
         ArrayList<Libro> libros = new ArrayList<>();
 
@@ -137,6 +154,8 @@ public class AnadirObjetos {
         l5.setAnio(2003);
         l5.setIsbn("978-84-450-0494-7");
         libros.add(l5);
+
+        EscribirFicheros.escribirFicheroLibros(libros);
 
         return libros;
     }
