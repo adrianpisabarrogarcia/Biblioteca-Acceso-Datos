@@ -1,4 +1,6 @@
 import Controlers.AnadirObjetos;
+import Controlers.dat.EscribirFicheros;
+import Controlers.dat.LeerFicheros;
 import Models.Alquiler;
 import Models.Libro;
 import Models.Usuario;
@@ -18,6 +20,7 @@ public class Main {
         libros = AnadirObjetos.anadirLibros();
         usuarios = AnadirObjetos.anadirUsuarios();
         alquileres = AnadirObjetos.anadirAlquileres();
+        System.out.println("✅ Ficheros cargados correctamente.");
 
         //Menú
         int seleccion = 0;
@@ -50,10 +53,10 @@ public class Main {
                     exportarAlquileres();
                     break;
                 case 7:
-                    System.out.println("Saliendo...");
+                    System.out.println("💨 Saliendo...");
                     break;
                 default:
-                    System.out.println("Opcion no valida ⚠️");
+                    System.out.println("⚠️ Opción no valida");
                     break;
             }
             System.out.println("******************");
@@ -89,10 +92,39 @@ public class Main {
     }
 
     private static void alquilarLibro() {
+
     }
 
     private static void anadirLibro() {
-        System.out.println("Añadiendo libros");
+        Scanner sc = new Scanner(System.in);
+        ArrayList<Libro> libros = new ArrayList<>();
+
+        //id
+        libros = LeerFicheros.leerFicheroLibros();
+        int id = libros.size() + 1;
+        //titulo
+        System.out.println("Introduce el título del libro: ");
+        String titulo = sc.nextLine();
+        //autor
+        System.out.println("Introduce el autor del libro: ");
+        String autor = sc.nextLine();
+        //editorial
+        System.out.println("Introduce la editorial del libro: ");
+        String editorial = sc.nextLine();
+        //Año
+        System.out.println("Introduce el año del libro: ");
+        int anyo = sc.nextInt();
+        //ISBN
+        System.out.println("Introduce el ISBN del libro: ");
+        String isbn = sc.nextLine();
+
+        Libro libro = new Libro(id, titulo, autor, editorial, anyo, isbn);
+
+        libros.add(libro);
+        EscribirFicheros.escribirFicheroLibros(libros);
+        ArrayList<Libro> librosleer = LeerFicheros.leerFicheroLibros();
+        librosleer.forEach(System.out::println);
+        System.out.println("✅ Libro añadido correctamente.");
     }
 
 
