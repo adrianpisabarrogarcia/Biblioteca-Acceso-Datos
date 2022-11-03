@@ -98,6 +98,7 @@ public class AnadirObjetos {
         usuario2.setEmail("mariagomez@gmail.com");
         Date fecha2 = new Date(1990, 12, 12);
         usuario2.setFechaNacimiento(fecha2);
+        usuarios.add(usuario2);
         Usuario usuario3 = new Usuario();
         usuario3.setId(3);
         usuario3.setNombre("Pedro");
@@ -106,6 +107,7 @@ public class AnadirObjetos {
         usuario3.setEmail("pedrogarcia@gmail.com");
         Date fecha3 = new Date(1990, 12, 12);
         usuario3.setFechaNacimiento(fecha3);
+        usuarios.add(usuario3);
 
         EscribirFicheros.escribirFicheroUsuarios(usuarios);
 
