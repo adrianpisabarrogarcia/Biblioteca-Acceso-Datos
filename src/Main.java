@@ -40,7 +40,7 @@ public class Main {
                     break;
                 case 2:
                     System.out.println("️⭐️ Devolver libro ⭐️");
-                    devolverLibro();
+                    devolverLibro(usuario);
                     System.out.println("Has terminado de devolver un libro.");
                     break;
                 case 3:
@@ -131,7 +131,54 @@ public class Main {
     private static void generarEstadisticas() {
     }
 
-    private static void devolverLibro() {
+    private static void devolverLibro(Usuario usuario) {
+        //Leer fichero de alquileres
+        ArrayList<Alquiler> alquileres = new ArrayList<>();
+        alquileres = LeerFicheros.leerFicheroAlquileres();
+
+        //Mostar alquileres del usuario
+        ArrayList<Alquiler> alquileresUsuario = new ArrayList<>();
+        for (Alquiler a: alquileres) {
+            if (a.getIdUsuario() == usuario.getId() && a.getFechaDevolucion() == null){
+                alquileresUsuario.add(a);
+            }
+        }
+        if (alquileresUsuario.size() == 0){
+            System.out.println("⚠️ No tienes ningún libro alquilado.");
+            return;
+        }else {
+            System.out.println("Tus libros alquilados son:");
+            for (Alquiler a: alquileresUsuario) {
+                System.out.println(a.toString());
+            }
+        }
+
+        //Pedir id del libro a devolver
+        System.out.println("Introduce el id del libro que quieres devolver:");
+        Scanner sc = new Scanner(System.in);
+        int idLibro = 0;
+        try {
+            idLibro = sc.nextInt();
+        } catch (Exception e) {
+            System.out.println("⚠️ El id introducido no es válido.");
+            devolverLibro(usuario);
+        }
+        boolean encontrado = false;
+        for (Alquiler a : alquileres) {
+           if (a.getId() == idLibro){
+                encontrado = true;
+               a.setFechaDevolucion(new Date());
+               System.out.println("✅ Libro devuelto correctamente.");
+               break;
+           }
+        }
+        if (!encontrado){
+            System.out.println("⚠️ No tienes ese libro alquilado.");
+            devolverLibro(usuario);
+        }
+        //Guardar alquileres
+        EscribirFicheros.escribirFicheroAlquileres(alquileres);
+        alquileres.forEach(System.out::println);
     }
 
     //Alquilar un libro
@@ -141,7 +188,7 @@ public class Main {
 
         //Si existe un alquiler asociado al usuario, no se puede alquilar
         for (Alquiler a: alquileres) {
-            if (a.getIdUsuario() == usuario.getId()){
+            if (a.getIdUsuario() == usuario.getId() && a.getFechaDevolucion() == null){
                 System.out.println("⚠️ No puedes alquilar más libros, tienes uno pendiente de devolver.");
                 System.out.println("El libro pendiente de devolver es: " + a.toString());
                 return;
@@ -177,7 +224,7 @@ public class Main {
             alquilarLibro(usuario);
         }
         Alquiler alquiler = new Alquiler();
-        alquiler.setId(alquileres.size());
+        alquiler.setId(alquileres.size() + 1);
         alquiler.setIdLibro(id);
         alquiler.setIdUsuario(usuario.getId());
         alquiler.setFechaAlquiler(new Date());
