@@ -19,5 +19,4 @@ public class ListaAlquileresEstadisticas {
     public List<Alquiler> getAlquileres() {
         return alquileres;
     }
-
 }

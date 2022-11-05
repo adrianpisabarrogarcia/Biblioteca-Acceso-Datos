@@ -1,5 +1,6 @@
 import Controlers.AnadirObjetos;
 import Controlers.XStream.EscribirFicherosXML;
+import Controlers.XStream.LeerFicherosXML;
 import Controlers.dat.EscribirFicheros;
 import Controlers.dat.LeerFicheros;
 import Models.Alquiler;
@@ -180,12 +181,13 @@ public class Main {
         EscribirFicherosXML.generarEstadisticasAlquileres(alquilersAExportar, mes, year);
         System.out.println("✅ Fichero xml generado correctamente.");
         System.out.println("✅ Mostrando alquileres en pantalla...");
+        //Leer fichero xml
+        ArrayList<Alquiler> alquileresLeidos = LeerFicherosXML.leerEstadisticasAlquileres(mes, year);
         //Mostrar alquileres en pantalla
-        for (Alquiler a: alquilersAExportar) {
+        System.out.println("Alquileres del mes " + mes + " del año " + year + ":");
+        for (Alquiler a: alquileresLeidos) {
             System.out.println(a.toString());
         }
-
-
     }
 
     private static void devolverLibro(Usuario usuario) {

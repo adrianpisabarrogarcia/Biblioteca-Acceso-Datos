@@ -1,10 +1,8 @@
-<AlquileresEstadisticas>
-  <alquileres>
-    <Alquiler>
-      <id>1</id>
-      <idUsuario>2</idUsuario>
-      <idLibro>2</idLibro>
-      <fechaAlquiler>2022-11-05 10:03:28.430 UTC</fechaAlquiler>
-    </Alquiler>
-  </alquileres>
-</AlquileresEstadisticas>
+<AlquileresEstadisticasMonth11Year2022>
+  <Alquiler>
+    <id>1</id>
+    <idUsuario>2</idUsuario>
+    <idLibro>2</idLibro>
+    <fechaAlquiler>2022-11-05 11:00:13.302 UTC</fechaAlquiler>
+  </Alquiler>
+</AlquileresEstadisticasMonth11Year2022>

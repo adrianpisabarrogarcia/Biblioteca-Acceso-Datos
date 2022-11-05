@@ -19,6 +19,7 @@ public class EscribirFicherosXML {
         //Añadir alias
         xstream.alias("AlquileresEstadisticasMonth"+month+"Year"+year, ListaAlquileresEstadisticas.class);
         xstream.alias("Alquiler", Alquiler.class);
+        xstream.addImplicitCollection(ListaAlquileresEstadisticas.class,"alquileres");
 
         //Escribir fichero XML
         try {

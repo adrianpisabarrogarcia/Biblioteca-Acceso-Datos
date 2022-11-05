@@ -22,6 +22,14 @@ public class Alquiler implements Serializable {
         this.fechaDevolucion = fechaDevolucion;
     }
 
+    public Alquiler(int id, int idUsuario, int idLibro, Date fechaAlquiler) {
+        this.id = id;
+        this.idUsuario = idUsuario;
+        this.idLibro = idLibro;
+        this.fechaAlquiler = fechaAlquiler;
+        this.fechaDevolucion = null;
+    }
+
     public int getId() {
         return id;
     }
