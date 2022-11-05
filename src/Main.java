@@ -1,12 +1,15 @@
 import Controlers.AnadirObjetos;
 import Controlers.XStream.EscribirFicherosXML;
 import Controlers.XStream.LeerFicherosXML;
+import Controlers.XStream.SpecificModels.AlquilerLibroUsuario;
 import Controlers.dat.EscribirFicheros;
 import Controlers.dat.LeerFicheros;
 import Models.Alquiler;
 import Models.Libro;
 import Models.Usuario;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Scanner;
@@ -123,12 +126,107 @@ public class Main {
         return opcion;
     }
 
-
+    //✅ Exportar alquileres con la información de los alquileres, libros y usuarios a un fichero XML
     private static void exportarAlquileres() {
+        ArrayList<Alquiler> alquileres = new ArrayList<>();
+        alquileres = LeerFicheros.leerFicheroAlquileres();
+        ArrayList<Libro> libros = new ArrayList<>();
+        libros = LeerFicheros.leerFicheroLibros();
+        ArrayList<Usuario> usuarios = new ArrayList<>();
+        usuarios = LeerFicheros.leerFicheroUsuarios();
+
+        ArrayList<AlquilerLibroUsuario> alquilerLibroUsuariosArrayList = new ArrayList<>();
+
+        //Recorrer alquileres para obtener los libros y usuarios que se han alquilado
+        for (Alquiler a: alquileres) {
+            AlquilerLibroUsuario alquilerLibroUsuario = new AlquilerLibroUsuario();
+
+            for (Libro l: libros) {
+                if (a.getIdLibro() == l.getId()){
+                    alquilerLibroUsuario.setLibro(l);
+                }
+            }
+            for (Usuario u: usuarios) {
+                if (a.getIdUsuario() == u.getId()){
+                    alquilerLibroUsuario.setUsuario(u);
+                }
+            }
+            alquilerLibroUsuario.setFechaAlquiler(a.getFechaAlquiler());
+            alquilerLibroUsuario.setFechaDevolucion(a.getFechaDevolucion());
+            alquilerLibroUsuariosArrayList.add(alquilerLibroUsuario);
+        }
+
+        System.out.println("Se van a exportar este número de alquileres: "+ alquilerLibroUsuariosArrayList.size());
+        System.out.println("Generando XML...");
+        EscribirFicherosXML.generarAlquileresLibrosUsuarios(alquilerLibroUsuariosArrayList);
+        System.out.println("Estos son los alquileres exportados: ");
+        alquilerLibroUsuariosArrayList.forEach(System.out::println);
     }
 
     //✅ Dar de alta usuarios
     private static void darAltaUsuario() {
+        ArrayList<Usuario> usuarios = new ArrayList<>();
+        usuarios = LeerFicheros.leerFicheroUsuarios();
+        Usuario usuario = new Usuario();
+        Scanner sc = new Scanner(System.in);
+        //Pedir datos
+        //Nombre
+        System.out.println("Introduce el nombre del usuario:");
+        String nombre = sc.nextLine();
+        usuario.setNombre(nombre);
+        //Apellidos
+        System.out.println("Introduce los apellidos del usuario:");
+        String apellidos = sc.nextLine();
+        usuario.setApellidos(apellidos);
+        //Dirección
+        System.out.println("Introduce la dirección del usuario:");
+        String direccion = sc.nextLine();
+        usuario.setDireccion(direccion);
+        //Fecha de nacimiento
+        System.out.println("Introduce la fecha de nacimiento del usuario: (dd/mm/aaaa)");
+        String fechaNacimiento = sc.nextLine();
+        try {
+            Date fecha = new SimpleDateFormat("dd/MM/yyyy").parse(fechaNacimiento);
+            usuario.setFechaNacimiento(fecha);
+        } catch (ParseException e) {
+            System.out.println("⚠️ La fecha introducida no es válida.");
+            darAltaUsuario();
+        }
+        //Email
+        System.out.println("Introduce el email del usuario:");
+        String email = sc.nextLine();
+        //Revisar que el email no esté ya en uso
+        boolean emailEnUso = false;
+        for (Usuario u: usuarios) {
+            if (u.getEmail().equals(email)){
+                emailEnUso = true;
+                break;
+            }
+        }
+        if (emailEnUso){
+            System.out.println("⚠️ El email introducido ya está en uso.");
+            darAltaUsuario();
+        }
+        //Ver si el email es válido con una expresión regular
+        if (!email.matches("^(.+)@(.+)$")){
+            System.out.println("⚠️ El email introducido no es válido.");
+             darAltaUsuario();
+        }
+        usuario.setEmail(email);
+
+        //Generar id
+        int id = usuarios.size() + 1;
+        usuario.setId(id);
+
+        //Añadir usuario a la lista
+        usuarios.add(usuario);
+
+        //Escribir en el fichero
+        EscribirFicheros.escribirFicheroUsuarios(usuarios);
+
+        System.out.println("✅ Usuario dado de alta correctamente.");
+        System.out.println(usuario.toString());
+
     }
 
     //✅ Generar estadísticas por mes y año de los libros que se han alquilado, mostrarlos en pantalla y después guardarlos en estadisticas.xml.
