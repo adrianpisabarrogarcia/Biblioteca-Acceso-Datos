@@ -18,56 +18,13 @@ public class AnadirObjetos {
     public static ArrayList<Alquiler> anadirAlquileres() {
 
         ArrayList<Alquiler> alquileres = new ArrayList<>();
-
-        Alquiler alquiler1 = new Alquiler();
-        alquiler1.setId(1);
-        alquiler1.setFechaAlquiler(new Date());
-        alquiler1.setFechaDevolucion(null);
-        alquiler1.setIdLibro(1);
-        alquiler1.setIdUsuario(1);
-        alquileres.add(alquiler1);
         Alquiler alquiler2 = new Alquiler();
-        alquiler2.setId(2);
+        alquiler2.setId(1);
         alquiler2.setFechaAlquiler(new Date());
         alquiler2.setFechaDevolucion(null);
         alquiler2.setIdLibro(2);
         alquiler2.setIdUsuario(2);
         alquileres.add(alquiler2);
-        Alquiler alquiler3 = new Alquiler();
-        alquiler3.setId(3);
-        alquiler3.setFechaAlquiler(new Date());
-        alquiler3.setFechaDevolucion(null);
-        alquiler3.setIdLibro(3);
-        alquiler3.setIdUsuario(3);
-        alquileres.add(alquiler3);
-        Alquiler alquiler4 = new Alquiler();
-        alquiler4.setId(4);
-        alquiler4.setFechaAlquiler(new Date());
-        alquiler4.setFechaDevolucion(null);
-        alquiler4.setIdLibro(4);
-        alquiler4.setIdUsuario(4);
-        alquileres.add(alquiler4);
-        Alquiler alquiler5 = new Alquiler();
-        alquiler5.setId(5);
-        alquiler5.setFechaAlquiler(new Date());
-        alquiler5.setFechaDevolucion(null);
-        alquiler5.setIdLibro(5);
-        alquiler5.setIdUsuario(5);
-        alquileres.add(alquiler5);
-        Alquiler alquiler6 = new Alquiler();
-        alquiler6.setId(6);
-        alquiler6.setFechaAlquiler(new Date());
-        alquiler6.setFechaDevolucion(null);
-        alquiler6.setIdLibro(6);
-        alquiler6.setIdUsuario(6);
-        alquileres.add(alquiler6);
-        Alquiler alquiler7 = new Alquiler();
-        alquiler7.setId(7);
-        alquiler7.setFechaAlquiler(new Date());
-        alquiler7.setFechaDevolucion(null);
-        alquiler7.setIdLibro(7);
-        alquiler7.setIdUsuario(7);
-        alquileres.add(alquiler7);
 
         EscribirFicheros.escribirFicheroAlquileres(alquileres);
 

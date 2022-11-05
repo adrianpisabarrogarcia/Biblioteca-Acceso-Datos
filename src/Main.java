@@ -35,27 +35,33 @@ public class Main {
             switch (seleccion){
                 case 1:
                     System.out.println("⭐️ Alquilar libro ⭐️");
-                    alquilarLibro();
+                    alquilarLibro(usuario);
+                    System.out.println("Has terminado de alquilar libros.");
                     break;
                 case 2:
                     System.out.println("️⭐️ Devolver libro ⭐️");
                     devolverLibro();
+                    System.out.println("Has terminado de devolver un libro.");
                     break;
                 case 3:
                     System.out.println("⭐️ Generar estadísticas ⭐️");
                     generarEstadisticas();
+                    System.out.println("Has terminado de generar estadísticas.");
                     break;
                 case 4:
                     System.out.println("⭐️ Añadir Libro ⭐️");
                     anadirLibro();
+                    System.out.println("Has terminado de añadir un libro.");
                     break;
                 case 5:
                     System.out.println("⭐️ Dar de alta usuarios ⭐️");
                     darAltaUsuario();
+                    System.out.println("Has terminado de dar de alta un usuario.");
                     break;
                 case 6:
                     System.out.println("⭐️ Exportar alquileres ⭐️");
                     exportarAlquileres();
+                    System.out.println("Has terminado de exportar alquileres.");
                     break;
                 case 7:
                     System.out.println("💨 Saliendo...");
@@ -99,6 +105,7 @@ public class Main {
         return usuario;
     }
 
+    //Menú de selección
     public static int menu(){
         int opcion;
         Scanner sc = new Scanner(System.in);
@@ -127,19 +134,58 @@ public class Main {
     private static void devolverLibro() {
     }
 
-    private static void alquilarLibro() {
+    //Alquilar un libro
+    private static void alquilarLibro(Usuario usuario) {
+        ArrayList<Alquiler> alquileres = new ArrayList<>();
+        alquileres = LeerFicheros.leerFicheroAlquileres();
+
+        //Si existe un alquiler asociado al usuario, no se puede alquilar
+        for (Alquiler a: alquileres) {
+            if (a.getIdUsuario() == usuario.getId()){
+                System.out.println("⚠️ No puedes alquilar más libros, tienes uno pendiente de devolver.");
+                System.out.println("El libro pendiente de devolver es: " + a.toString());
+                return;
+            }
+        }
 
         //Leer ficheros
-        ArrayList<Usuario> usuarios = new ArrayList<>();
-        usuarios = LeerFicheros.leerFicheroUsuarios();
         ArrayList<Libro> libros = new ArrayList<>();
         libros = LeerFicheros.leerFicheroLibros();
 
-        //Preguntar al usuario
+        //Preguntar al usuario que libro quiere
+        System.out.println("Escoge un id de la lista de libros para alquilarlo:");
+        for (Libro l: libros) {
+            System.out.println(l.toString());
+        }
         Scanner sc = new Scanner(System.in);
-        System.out.println("Usuarios: ");
-        System.out.println("Introduce el id del usuario: ");
-
+        int id = 0;
+        try {
+            id = sc.nextInt();
+        } catch (Exception e) {
+            System.out.println("⚠️ El id introducido no es válido.");
+            alquilarLibro(usuario);
+        }
+        boolean encontrado = false;
+        for (Libro l: libros) {
+            if (l.getId() == id){
+                encontrado = true;
+                break;
+            }
+        }
+        if (!encontrado){
+            System.out.println("⚠️ Libro no encontrado.");
+            alquilarLibro(usuario);
+        }
+        Alquiler alquiler = new Alquiler();
+        alquiler.setId(alquileres.size());
+        alquiler.setIdLibro(id);
+        alquiler.setIdUsuario(usuario.getId());
+        alquiler.setFechaAlquiler(new Date());
+        alquiler.setFechaDevolucion(null);
+        alquileres.add(alquiler);
+        EscribirFicheros.escribirFicheroAlquileres(alquileres);
+        System.out.println("✅ Libro alquilado correctamente.");
+        System.out.println(alquiler.toString());
     }
 
     private static void anadirLibro() {
@@ -173,10 +219,6 @@ public class Main {
         librosleer.forEach(System.out::println);
         System.out.println("✅ Libro añadido correctamente.");
     }
-
-
-
-
 
 
 }
