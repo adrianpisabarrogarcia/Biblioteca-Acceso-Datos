@@ -127,10 +127,11 @@ public class Main {
     private static void exportarAlquileres() {
     }
 
+    //✅ Dar de alta usuarios
     private static void darAltaUsuario() {
     }
 
-    //Generar estadísticas por mes y año de los libros que se han alquilado, mostrarlos en pantalla y después guardarlos en estadisticas.xml.
+    //✅ Generar estadísticas por mes y año de los libros que se han alquilado, mostrarlos en pantalla y después guardarlos en estadisticas.xml.
     private static void generarEstadisticas() {
         System.out.println("Vamos a generar estadísticas 📊 de los alquileres hechos en un mes y año específico, exportaremos un fichero xml con los datos y te los mostraremos en pantalla.");
         //Intruducir mes y año para generar las estadísticas
@@ -190,6 +191,7 @@ public class Main {
         }
     }
 
+    //✅ Devolver libro de la lista de alquileres
     private static void devolverLibro(Usuario usuario) {
         //Leer fichero de alquileres
         ArrayList<Alquiler> alquileres = new ArrayList<>();
@@ -240,7 +242,7 @@ public class Main {
         alquileres.forEach(System.out::println);
     }
 
-    //Alquilar un libro
+    //✅ Alquilar un libro
     private static void alquilarLibro(Usuario usuario) {
         ArrayList<Alquiler> alquileres = new ArrayList<>();
         alquileres = LeerFicheros.leerFicheroAlquileres();
@@ -294,6 +296,7 @@ public class Main {
         System.out.println(alquiler.toString());
     }
 
+    //✅ Añadir un libro a la biblioteca
     private static void anadirLibro() {
         Scanner sc = new Scanner(System.in);
         ArrayList<Libro> libros = new ArrayList<>();
@@ -310,21 +313,26 @@ public class Main {
         //editorial
         System.out.println("Introduce la editorial del libro: ");
         String editorial = sc.nextLine();
-        //Año
-        System.out.println("Introduce el año del libro: ");
-        int anyo = sc.nextInt();
         //ISBN
         System.out.println("Introduce el ISBN del libro: ");
         String isbn = sc.nextLine();
+        //Año
+        System.out.println("Introduce el año del libro: ");
+        int anyo = 0;
+        try {
+            anyo = sc.nextInt();
+        } catch (Exception e) {
+            System.out.println("⚠️ El año introducido no es válido. Vuelve a intentarlo.");
+            anadirLibro();
+        }
+
 
         Libro libro = new Libro(id, titulo, autor, editorial, anyo, isbn);
 
         libros.add(libro);
         EscribirFicheros.escribirFicheroLibros(libros);
-        ArrayList<Libro> librosleer = LeerFicheros.leerFicheroLibros();
-        librosleer.forEach(System.out::println);
         System.out.println("✅ Libro añadido correctamente.");
+        libros.forEach(System.out::println);
     }
-
 
 }
