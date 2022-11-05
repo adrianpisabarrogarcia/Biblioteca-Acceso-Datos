@@ -1,4 +1,5 @@
 import Controlers.AnadirObjetos;
+import Controlers.XStream.EscribirFicherosXML;
 import Controlers.dat.EscribirFicheros;
 import Controlers.dat.LeerFicheros;
 import Models.Alquiler;
@@ -128,7 +129,63 @@ public class Main {
     private static void darAltaUsuario() {
     }
 
+    //Generar estadísticas por mes y año de los libros que se han alquilado, mostrarlos en pantalla y después guardarlos en estadisticas.xml.
     private static void generarEstadisticas() {
+        System.out.println("Vamos a generar estadísticas 📊 de los alquileres hechos en un mes y año específico, exportaremos un fichero xml con los datos y te los mostraremos en pantalla.");
+        //Intruducir mes y año para generar las estadísticas
+        System.out.println("Introduce el mes que quieres consultar:");
+        Scanner sc = new Scanner(System.in);
+        int mes = sc.nextInt();
+        try {
+            if (mes < 1 || mes > 12){
+                throw new Exception();
+            }
+        } catch (Exception e) {
+            System.out.println("⚠️ El mes introducido no es válido.");
+            generarEstadisticas();
+        }
+        System.out.println("Introduce el año que quieres consultar:");
+        int year = sc.nextInt();
+        try {
+            if (year < 0){
+                throw new Exception();
+            }
+        } catch (Exception e) {
+            System.out.println("⚠️ El año introducido no es válido.");
+            generarEstadisticas();
+        }
+        System.out.println("✅ Mes y año introducidos correctamente.");
+        //Comprobar si hay alquileres en ese mes y año
+        ArrayList<Alquiler> alquileres = new ArrayList<>();
+        alquileres = LeerFicheros.leerFicheroAlquileres();
+        ArrayList<Alquiler> alquilersAExportar = new ArrayList<>();
+        for (Alquiler a: alquileres) {
+            int monthFechaAlquiler = a.getFechaAlquiler().getMonth() + 1;
+            int yearFechaAlquiler = a.getFechaAlquiler().getYear() + 1900;
+            System.out.println("Mes: " + monthFechaAlquiler + " Año: " + yearFechaAlquiler);
+
+            if (monthFechaAlquiler == mes && yearFechaAlquiler == year){
+                alquilersAExportar.add(a);
+            }
+        }
+        //Si no hay alquileres en ese mes y año, mostrar mensaje y volver al menú
+        if (alquilersAExportar.size() == 0){
+            System.out.println("⚠️ No se han encontrado alquileres en el mes y año introducidos.");
+            return;
+        }
+        //Si hay alquileres en ese mes y año, mostrarlos en pantalla y exportarlos a un fichero xml
+        System.out.println("✅ Se han encontrado " + alquilersAExportar.size() + " alquileres en el mes y año introducidos.");
+        System.out.println("✅ Exportando alquileres a fichero xml...");
+        //Generar fichero xml
+        EscribirFicherosXML.generarEstadisticasAlquileres(alquilersAExportar, mes, year);
+        System.out.println("✅ Fichero xml generado correctamente.");
+        System.out.println("✅ Mostrando alquileres en pantalla...");
+        //Mostrar alquileres en pantalla
+        for (Alquiler a: alquilersAExportar) {
+            System.out.println(a.toString());
+        }
+
+
     }
 
     private static void devolverLibro(Usuario usuario) {
