@@ -4,7 +4,6 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class Alquiler implements Serializable {
-
     private int id;
     private int idUsuario;
     private int idLibro;

@@ -14,8 +14,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Scanner;
 
-import static Controlers.AnadirObjetos.anadirLibros;
-
 public class Main {
     public static void main(String[] args) {
         //Añadir objetos
@@ -79,7 +77,7 @@ public class Main {
         }
     }
 
-    //Iniciar sesión con un usuario
+    //✅Iniciar sesión con un usuario
     private static Usuario iniciarSesion(ArrayList<Usuario> usuarios) {
         Usuario usuario = new Usuario();
         Scanner sc = new Scanner(System.in);
@@ -110,7 +108,7 @@ public class Main {
         return usuario;
     }
 
-    //Menú de selección
+    //✅Menú de selección
     public static int menu(){
         int opcion;
         Scanner sc = new Scanner(System.in);
