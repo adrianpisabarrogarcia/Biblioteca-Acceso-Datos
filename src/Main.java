@@ -21,15 +21,20 @@ public class Main {
         usuarios = AnadirObjetos.anadirUsuarios();
         alquileres = AnadirObjetos.anadirAlquileres();
         System.out.println("✅ Ficheros cargados correctamente.");
+        System.out.println("Vamos a iniciar sesión.");
 
-        //Menú
+        //Iniciar sesión
+        Usuario usuario = new Usuario();
+        usuario = iniciarSesion(usuarios);
+
+        //Menú de selección
         int seleccion = 0;
         while (seleccion != 7){
             System.out.println("Menú de la biblioteca:");
             seleccion = menu();
             switch (seleccion){
                 case 1:
-                    System.out.println("⭐️ Alquilar libro -");
+                    System.out.println("⭐️ Alquilar libro ⭐️");
                     alquilarLibro();
                     break;
                 case 2:
@@ -63,6 +68,37 @@ public class Main {
         }
     }
 
+    //Iniciar sesión con un usuario
+    private static Usuario iniciarSesion(ArrayList<Usuario> usuarios) {
+        Usuario usuario = new Usuario();
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Introduce el id de usuario con el que quieres acceder:");
+        for (Usuario u: usuarios) {
+            System.out.println(u.toString());
+        }
+        int id = 0;
+        try {
+            id = sc.nextInt();
+        } catch (Exception e) {
+            System.out.println("⚠️ El id introducido no es válido.");
+            iniciarSesion(usuarios);
+        }
+        boolean encontrado = false;
+        for (Usuario u: usuarios) {
+            if (u.getId() == id){
+                usuario = u;
+                encontrado = true;
+                break;
+            }
+        }
+        if (!encontrado){
+            System.out.println("⚠️ Usuario no encontrado.");
+            iniciarSesion(usuarios);
+        }
+        System.out.println("✅ Usuario encontrado y haciendo login, bienvenid@ " + usuario.getNombre());
+        return usuario;
+    }
+
     public static int menu(){
         int opcion;
         Scanner sc = new Scanner(System.in);
@@ -92,6 +128,17 @@ public class Main {
     }
 
     private static void alquilarLibro() {
+
+        //Leer ficheros
+        ArrayList<Usuario> usuarios = new ArrayList<>();
+        usuarios = LeerFicheros.leerFicheroUsuarios();
+        ArrayList<Libro> libros = new ArrayList<>();
+        libros = LeerFicheros.leerFicheroLibros();
+
+        //Preguntar al usuario
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Usuarios: ");
+        System.out.println("Introduce el id del usuario: ");
 
     }
 
