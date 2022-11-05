@@ -158,7 +158,9 @@ public class Main {
 
         System.out.println("Se van a exportar este número de alquileres: "+ alquilerLibroUsuariosArrayList.size());
         System.out.println("Generando XML...");
+        //Generar XML
         EscribirFicherosXML.generarAlquileresLibrosUsuarios(alquilerLibroUsuariosArrayList);
+        //Imprimir los alquileres
         System.out.println("Estos son los alquileres exportados: ");
         alquilerLibroUsuariosArrayList.forEach(System.out::println);
     }
