@@ -122,6 +122,7 @@ public class AnadirObjetos {
         ArrayList<Libro> libros = new ArrayList<>();
 
         Libro l1 = new Libro();
+        l1.setId(1);
         l1.setTitulo("El señor de los anillos");
         l1.setAutor("J.R.R. Tolkien");
         l1.setEditorial("Minotauro");
@@ -129,6 +130,7 @@ public class AnadirObjetos {
         l1.setIsbn("978-84-450-0494-7");
         libros.add(l1);
         Libro l2 = new Libro();
+        l2.setId(2);
         l2.setTitulo("El principito");
         l2.setAutor("Antoine de Saint-Exupéry");
         l2.setEditorial("Minotauro");
@@ -136,6 +138,7 @@ public class AnadirObjetos {
         l2.setIsbn("978-84-450-0494-7");
         libros.add(l2);
         Libro l3 = new Libro();
+        l3.setId(3);
         l3.setTitulo("El hobbit");
         l3.setAutor("J.R.R. Tolkien");
         l3.setEditorial("Minotauro");
@@ -143,6 +146,7 @@ public class AnadirObjetos {
         l3.setIsbn("978-84-450-0494-7");
         libros.add(l3);
         Libro l4 = new Libro();
+        l4.setId(4);
         l4.setTitulo("El nombre del viento");
         l4.setAutor("Patrick Rothfuss");
         l4.setEditorial("Minotauro");
@@ -150,6 +154,7 @@ public class AnadirObjetos {
         l4.setIsbn("978-84-450-0494-7");
         libros.add(l4);
         Libro l5 = new Libro();
+        l5.setId(5);
         l5.setTitulo("El código Da Vinci");
         l5.setAutor("Dan Brown");
         l5.setEditorial("Minotauro");
