@@ -337,7 +337,6 @@ public class Main {
         }
         //Guardar alquileres
         EscribirFicheros.escribirFicheroAlquileres(alquileres);
-        alquileres.forEach(System.out::println);
     }
 
     //✅ Alquilar un libro

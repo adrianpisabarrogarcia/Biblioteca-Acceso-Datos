@@ -18,7 +18,7 @@
         <anio>1943</anio>
         <isbn>978-84-450-0494-7</isbn>
       </libro>
-      <fechaAlquiler>2022-11-05 11:39:56.229 UTC</fechaAlquiler>
+      <fechaAlquiler>2022-11-06 08:36:01.319 UTC</fechaAlquiler>
     </Controlers.XStream.SpecificModels.AlquilerLibroUsuario>
   </alquileres>
 </AlquileresLibrosUsuarios>
