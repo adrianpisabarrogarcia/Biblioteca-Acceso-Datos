@@ -10,16 +10,19 @@ public class Libro implements Serializable {
     private int anio;
     private String isbn;
 
+    private Categoria categoria;
+
     public Libro() {
     }
 
-    public Libro(int id, String titulo, String autor, String editorial, int anio, String isbn) {
+    public Libro(int id, String titulo, String autor, String editorial, int anio, String isbn, Categoria categoria) {
         this.id = id;
         this.titulo = titulo;
         this.autor = autor;
         this.editorial = editorial;
         this.anio = anio;
         this.isbn = isbn;
+        this.categoria = categoria;
     }
 
     public int getId() {
@@ -70,6 +73,14 @@ public class Libro implements Serializable {
         this.isbn = isbn;
     }
 
+    public Categoria getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
+    }
+
     @Override
     public String toString() {
         return "Libro{" +
@@ -79,6 +90,7 @@ public class Libro implements Serializable {
                 ", editorial='" + editorial + '\'' +
                 ", anio=" + anio +
                 ", isbn='" + isbn + '\'' +
+                ", categoria=" + categoria +
                 '}';
     }
 }

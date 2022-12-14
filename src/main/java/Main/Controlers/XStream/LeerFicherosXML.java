@@ -1,5 +1,6 @@
 package Main.Controlers.XStream;
 
+import Main.Controlers.XStream.SpecificModels.CategoriaLibros;
 import Main.Models.Alquiler;
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.DomDriver;
@@ -10,7 +11,7 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
 public class LeerFicherosXML {
-
+    /*
         public static ArrayList<Alquiler> leerEstadisticasAlquileres(int month, int year) {
             ArrayList<Alquiler> alquileres = new ArrayList<>();
             //Crear fichero XML
@@ -21,9 +22,9 @@ public class LeerFicherosXML {
 
 
             //Añadir alias
-            xstream.alias("AlquileresEstadisticasMonth"+month+"Year"+year, ListaAlquileresEstadisticas.class);
+            xstream.alias("AlquileresEstadisticasMonth"+month+"Year"+year, ListaCategoriasLibros.class);
             xstream.alias("Alquiler", Alquiler.class);
-            xstream.addImplicitCollection(ListaAlquileresEstadisticas.class,"alquileres");
+            xstream.addImplicitCollection(ListaCategoriasLibros.class,"alquileres");
 
 
             //Acceder al fichero XML
@@ -36,9 +37,12 @@ public class LeerFicherosXML {
             }
 
             //Deserializar
-                ListaAlquileresEstadisticas listaAlquileresEstadisticas = (ListaAlquileresEstadisticas) xstream.fromXML(fis);
-                alquileres = (ArrayList<Alquiler>) listaAlquileresEstadisticas.getAlquileres();
+                ListaCategoriasLibros listaAlquileresEstadisticas = (ListaCategoriasLibros) xstream.fromXML(fis);
+                alquileres = (ArrayList<CategoriaLibros>) listaAlquileresEstadisticas.getCategoriaLibros();
 
             return alquileres;
         }
+
+    */
+
 }

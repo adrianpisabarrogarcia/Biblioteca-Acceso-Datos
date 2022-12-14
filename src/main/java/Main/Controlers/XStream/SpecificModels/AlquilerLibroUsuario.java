@@ -2,7 +2,6 @@ package Main.Controlers.XStream.SpecificModels;
 
 import Main.Models.Libro;
 import Main.Models.Usuario;
-
 import java.util.Date;
 
 public class AlquilerLibroUsuario {
@@ -20,7 +19,6 @@ public class AlquilerLibroUsuario {
         this.fechaAlquiler = fechaAlquiler;
         this.fechaDevolucion = fechaDevolucion;
     }
-
 
     public AlquilerLibroUsuario() {
     }
