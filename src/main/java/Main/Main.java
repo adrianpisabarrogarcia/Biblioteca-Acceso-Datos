@@ -8,13 +8,18 @@ import Main.Controlers.XStream.SpecificModels.AlquilerLibroUsuario;
 import Main.Controlers.XStream.SpecificModels.CategoriaLibros;
 import Main.Controlers.dat.EscribirFicheros;
 import Main.Controlers.dat.LeerFicheros;
+import Main.Controlers.existdb.ExistDB;
 import Main.Models.Alquiler;
 import Main.Models.Categoria;
 import Main.Models.Libro;
 import Main.Models.Usuario;
 import Main.Views.PantallaPrincipal;
 import org.apache.log4j.Logger;
+import org.xmldb.api.base.Collection;
+import org.xmldb.api.base.XMLDBException;
+import org.xmldb.api.modules.XMLResource;
 
+import java.io.File;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -22,17 +27,50 @@ import java.util.Date;
 import java.util.Scanner;
 
 public class Main {
-
-    //Log4j
     private static final Logger logger = org.apache.log4j.Logger.getLogger(Main.class);
 
     public static void main(String[] args) {
+        //Generar los archivos xmls del punto 1
         generarXMLAlquilerLibroCategoriaUsuario();
         generarXMLCategoriaLibro();
+        generarXMLUsuarios();
+        generarXMLCategoria();
+        generarXMLLibro();
 
+        //Cargar los archivos xmls en existdb
+        ExistDB.cargarXML("AlquileresLibrosCategoriasUsuarios");
+        ExistDB.cargarXML("ListaCategoriasLibros");
+        ExistDB.cargarXML("Libros");
+        ExistDB.cargarXML("Categorias");
+        ExistDB.cargarXML("Usuarios");
+
+        //Cargar la vista principal
         PantallaPrincipal pantallaPrincipal = new PantallaPrincipal();
         pantallaPrincipal.setVisible(true);
 
+    }
+
+    private static void generarXMLLibro() {
+        logger.info("Generando XML Libros");
+        ArrayList<Categoria> categorias = AnadirObjetos.anadirCategoriasLibros();
+        ArrayList<Libro> libros = AnadirObjetos.anadirLibros(categorias);
+        EscribirFicherosXML.generarLibros(libros);
+        logger.info("XML Libros generado");
+    }
+
+    private static void generarXMLCategoria() {
+        logger.info("Generando XML Categorias");
+        ArrayList<Categoria> categorias = AnadirObjetos.anadirCategoriasLibros();
+        EscribirFicherosXML.generarCategorias(categorias);
+        logger.info("XML Categorias generado");
+    }
+
+    private static void generarXMLUsuarios() {
+        logger.info("Generando XML Categorias");
+        ArrayList<Usuario> usuarios = AnadirObjetos.anadirUsuarios();
+        EscribirFicherosXML.generarUsuarios(usuarios);
+        logger.info("XML Categorias generado");
+        
     }
 
     private static void generarXMLCategoriaLibro() {

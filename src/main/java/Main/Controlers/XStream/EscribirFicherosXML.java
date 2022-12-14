@@ -19,6 +19,75 @@ public class EscribirFicherosXML {
     private static final Logger logger = org.apache.log4j.Logger.getLogger(EscribirFicherosXML.class);
 
 
+    //Objetos normales
+    public static void generarLibros(ArrayList<Libro> librosArrayList) {
+        //Convertir arraylist a lista
+        //ListaCategoriasLibros listaCategoriasLibros = new ListaCategoriasLibros(categoriaLibrosArrayList);
+
+        //Crear fichero XML
+        XStream xstream = new XStream(new DomDriver());
+        //No hacer referencias
+        xstream.setMode(XStream.NO_REFERENCES);
+
+        //Añadir alias
+        xstream.alias("libro", Libro.class);
+        xstream.alias("categoria", Categoria.class);
+        //Añadir atributos
+        xstream.useAttributeFor(Libro.class, "id");
+        xstream.useAttributeFor(Categoria.class, "id");
+
+        //Escribir fichero XML
+        try {
+            xstream.toXML(librosArrayList, new FileOutputStream("Libros.xml"));
+            logger.info("Fichero XML ListaCategoriasLibros.xml generado");
+        } catch (Exception e) {
+            logger.error("Error al escribir el fichero XML");
+            logger.error(e.getMessage());
+        }
+    }
+    public static void generarCategorias(ArrayList<Categoria> categoriasArrayList) {
+        //Crear fichero XML
+        XStream xstream = new XStream(new DomDriver());
+        //No hacer referencias
+        xstream.setMode(XStream.NO_REFERENCES);
+
+        //Añadir alias
+        xstream.alias("categoria", Categoria.class);
+        //Añadir atributos
+        xstream.useAttributeFor(Categoria.class, "id");
+
+        //Escribir fichero XML
+        try {
+            xstream.toXML(categoriasArrayList, new FileOutputStream("Categorias.xml"));
+            logger.info("Fichero XML Categorias.xml generado");
+        } catch (Exception e) {
+            logger.error("Error al escribir Categorias el fichero XML");
+            logger.error(e.getMessage());
+        }
+    }
+    public static void generarUsuarios(ArrayList<Usuario> usuariosArrayList) {
+
+        //Crear fichero XML
+        XStream xstream = new XStream(new DomDriver());
+        //No hacer referencias
+        xstream.setMode(XStream.NO_REFERENCES);
+
+        //Añadir alias
+        xstream.alias("usuario", Usuario.class);
+        //Añadir atributos
+        xstream.useAttributeFor(Usuario.class, "id");
+
+        //Escribir fichero XML
+        try {
+            xstream.toXML(usuariosArrayList, new FileOutputStream("Usuarios.xml"));
+            logger.info("Fichero XML Usuarios.xml generado");
+        } catch (Exception e) {
+            logger.error("Error al escribir Usuarios el fichero XML");
+            logger.error(e.getMessage());
+        }
+    }
+
+    //Relaciones
     public static void generarCategoriasLibros(ArrayList<CategoriaLibros> categoriaLibrosArrayList) {
         //Convertir arraylist a lista
         ListaCategoriasLibros listaCategoriasLibros = new ListaCategoriasLibros(categoriaLibrosArrayList);
@@ -46,8 +115,6 @@ public class EscribirFicherosXML {
             logger.error(e.getMessage());
         }
     }
-
-
     public static void generarAlquileresLibrosUsuarios(ArrayList<AlquilerLibroUsuario> alquileres) {
         //Convertir arraylist a lista
         ListaAlquileresLibrosUsuarios listaAlquileresLibrosUsuarios = new ListaAlquileresLibrosUsuarios(alquileres);
