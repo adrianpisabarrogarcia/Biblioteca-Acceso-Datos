@@ -4,7 +4,10 @@
 
 package Main.Views;
 
+import Main.Views.Libros.GestionarLibros;
+
 import java.awt.*;
+import java.awt.event.*;
 import javax.swing.*;
 
 /**
@@ -16,11 +19,16 @@ public class PantallaPrincipal extends JFrame {
         setTitle("Biblioteca Pantalla Principal");
     }
 
+    private void mGestinarLibros(ActionEvent e) {
+        GestionarLibros gestionarLibros = new GestionarLibros();
+        gestionarLibros.setVisible(true);
+    }
+
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents  @formatter:off
         menuBar1 = new JMenuBar();
         menu1 = new JMenu();
-        menuItem1 = new JMenuItem();
+        mGestinarLibros = new JMenuItem();
         menuItem2 = new JMenuItem();
         menu2 = new JMenu();
         menu3 = new JMenu();
@@ -39,9 +47,10 @@ public class PantallaPrincipal extends JFrame {
             {
                 menu1.setText("Libros");
 
-                //---- menuItem1 ----
-                menuItem1.setText("Insertar, Modificar, Eliminar");
-                menu1.add(menuItem1);
+                //---- mGestinarLibros ----
+                mGestinarLibros.setText("Insertar, Modificar, Eliminar");
+                mGestinarLibros.addActionListener(e -> mGestinarLibros(e));
+                menu1.add(mGestinarLibros);
 
                 //---- menuItem2 ----
                 menuItem2.setText("Listar");
@@ -90,7 +99,7 @@ public class PantallaPrincipal extends JFrame {
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables  @formatter:off
     private JMenuBar menuBar1;
     private JMenu menu1;
-    private JMenuItem menuItem1;
+    private JMenuItem mGestinarLibros;
     private JMenuItem menuItem2;
     private JMenu menu2;
     private JMenu menu3;

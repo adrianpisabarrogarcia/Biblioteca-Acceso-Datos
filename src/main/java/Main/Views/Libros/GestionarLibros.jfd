@@ -1,0 +1,163 @@
+JFDML JFormDesigner: "8.0.0.0.194" Java: "17.0.5" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class com.jformdesigner.runtime.NullLayout ) {
+			"autoSize": false
+		} ) {
+			name: "this"
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label1"
+				"text": "Id"
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 60
+				"y": 80
+				"width": 115
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label2"
+				"text": "Titulo"
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"width": 115
+				"height": 15
+				"x": 55
+				"y": 120
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label3"
+				"text": "Autor"
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"width": 115
+				"height": 16
+				"x": 55
+				"y": 160
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label4"
+				"text": "Editorial"
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"width": 115
+				"height": 16
+				"x": 50
+				"y": 205
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label5"
+				"text": "Año"
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"width": 115
+				"height": 16
+				"x": 50
+				"y": 250
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label6"
+				"text": "ISBN"
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"width": 115
+				"height": 16
+				"x": 50
+				"y": 290
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label7"
+				"text": "Categoría"
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 50
+				"y": 330
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "bInsertar"
+				"text": "Insertar"
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 65
+				"y": 400
+				"width": 100
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "bModificar"
+				"text": "Modificar"
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"width": 100
+				"height": 27
+				"x": 180
+				"y": 400
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "bEliminar"
+				"text": "Eliminar"
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"width": 100
+				"height": 27
+				"x": 295
+				"y": 400
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "textField1"
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 170
+				"y": 75
+				"width": 200
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "textField2"
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"width": 415
+				"height": 27
+				"x": 170
+				"y": 115
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "textField3"
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"width": 415
+				"height": 27
+				"x": 170
+				"y": 155
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "bBuscar"
+				"text": "Buscar"
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 390
+				"y": 75
+				"width": 145
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "textField4"
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"width": 415
+				"height": 27
+				"x": 170
+				"y": 200
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "textField5"
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"width": 415
+				"height": 27
+				"x": 170
+				"y": 240
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "textField6"
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"width": 415
+				"height": 27
+				"x": 170
+				"y": 280
+			} )
+			add( new FormComponent( "javax.swing.JComboBox" ) {
+				name: "comboBox1"
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 170
+				"y": 325
+				"width": 415
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 0, 5 )
+			"size": new java.awt.Dimension( 705, 510 )
+		} )
+	}
+}

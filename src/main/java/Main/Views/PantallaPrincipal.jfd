@@ -33,8 +33,9 @@ new FormModel {
 					name: "menu1"
 					"text": "Libros"
 					add( new FormComponent( "javax.swing.JMenuItem" ) {
-						name: "menuItem1"
+						name: "mGestinarLibros"
 						"text": "Insertar, Modificar, Eliminar"
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "mGestinarLibros", true ) )
 					} )
 					add( new FormComponent( "javax.swing.JMenuItem" ) {
 						name: "menuItem2"
