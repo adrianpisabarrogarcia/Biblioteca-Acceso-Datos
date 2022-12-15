@@ -41,12 +41,15 @@ public class GestionarCategoriasView extends JFrame {
     }
 
     private void bInsertar(ActionEvent e) {
-        String id = tfId.getText();
         String nombre = tfNombre.getText();
         String descripcion = tfDescripcion.getText();
         String errores = "";
-        if (id.isEmpty()) {
-            errores += "El campo id no puede estar vacio\n";
+        ArrayList<Categoria> categorias = CategoriasController.listar();
+        int idMax = 1;
+        for (Categoria categoria : categorias) {
+            if (categoria.getId() >= idMax) {
+                idMax = categoria.getId() + 1;
+            }
         }
         if (nombre.isEmpty()) {
             errores += "El campo nombre no puede estar vacio\n";
@@ -54,7 +57,79 @@ public class GestionarCategoriasView extends JFrame {
         if (descripcion.isEmpty()) {
             errores += "El campo descripcion no puede estar vacio\n";
         }
-        try{
+        if (!errores.equals("")) {
+            JOptionPane.showMessageDialog(null, errores);
+        }else{
+            CategoriasController.insertar(new Categoria(idMax, nombre, descripcion));
+            JOptionPane.showMessageDialog(null, "Categoria insertada correctamente");
+            vaciarCampos();
+            cargarTablaCategorias();
+        }
+    }
+
+    private void bVaciar(ActionEvent e) {
+        vaciarCampos();
+        cargarTablaCategorias();
+    }
+
+    private void bEliminar(ActionEvent e) {
+        String id = tfId.getText();
+        Categoria categoria = new Categoria();
+        try {
+            Integer.parseInt(id);
+        }catch (NumberFormatException ex){
+            JOptionPane.showMessageDialog(null, "El campo id debe ser un numero");
+            return;
+        }
+        categoria.setId(Integer.parseInt(id));
+        if (CategoriasController.existe(categoria)) {
+            CategoriasController.eliminar(categoria);
+            JOptionPane.showMessageDialog(null, "Categoria eliminada correctamente");
+            vaciarCampos();
+            cargarTablaCategorias();
+        }else{
+            JOptionPane.showMessageDialog(null, "No existe ningun elemento con ese id");
+        }
+    }
+
+    private void bModificar(ActionEvent e) {
+        String id = tfId.getText();
+        String nombre = tfNombre.getText();
+        String descripcion = tfDescripcion.getText();
+        String errores = "";
+        Categoria categoria = new Categoria();
+        try {
+            Integer.parseInt(id);
+        }catch (NumberFormatException ex){
+            errores += "El campo id debe ser un numero\n";
+        }
+        if (nombre.isEmpty()) {
+            errores += "El campo nombre no puede estar vacio\n";
+        }
+        if (descripcion.isEmpty()) {
+            errores += "El campo descripcion no puede estar vacio\n";
+        }
+        if (!errores.equals("")) {
+            JOptionPane.showMessageDialog(null, errores);
+        }else{
+            categoria.setId(Integer.parseInt(id));
+            categoria.setNombre(nombre);
+            categoria.setDescripcion(descripcion);
+            if (CategoriasController.existe(categoria)) {
+                CategoriasController.modificar(categoria);
+                JOptionPane.showMessageDialog(null, "Categoria modificada correctamente");
+                vaciarCampos();
+                cargarTablaCategorias();
+            }else{
+                JOptionPane.showMessageDialog(null, "No existe ningun elemento con ese id");
+            }
+        }
+    }
+
+    private void bBuscar(ActionEvent e) {
+        String id = tfId.getText();
+        String errores = "";
+        try {
             Integer.parseInt(id);
         }catch (NumberFormatException ex){
             errores += "El campo id debe ser un numero\n";
@@ -62,10 +137,60 @@ public class GestionarCategoriasView extends JFrame {
         if (!errores.equals("")) {
             JOptionPane.showMessageDialog(null, errores);
         }else{
-            CategoriasController.insertar(new Categoria(Integer.parseInt(id), nombre, descripcion));
-            JOptionPane.showMessageDialog(null, "Categoria insertada correctamente");
-            vaciarCampos();
-            cargarTablaCategorias();
+            Categoria categoria = new Categoria();
+            categoria.setId(Integer.parseInt(id));
+            categoria = CategoriasController.buscarPorId(categoria);
+            if (categoria != null) {
+                tfNombre.setText(categoria.getNombre());
+                tfDescripcion.setText(categoria.getDescripcion());
+            }else{
+                JOptionPane.showMessageDialog(null, "No existe ningun elemento con ese id");
+            }
+        }
+    }
+
+    private void bBuscarTabla(ActionEvent e) {
+        String id = tfId.getText();
+        String nombre = tfNombre.getText();
+        String descripcion = tfDescripcion.getText();
+        //Comprobar el id
+        String errores = "";
+        Categoria categoria = new Categoria();
+        if(!id.isEmpty()) {
+            try {
+                Integer.parseInt(id);
+                categoria.setId(Integer.parseInt(id));
+
+            }catch (NumberFormatException ex){
+                errores += "El campo id debe ser un numero\n";
+            }
+        }else{
+            categoria.setId(-1);
+        }
+        if(nombre.isEmpty()){
+            categoria.setNombre(null);
+        }else{
+            categoria.setNombre(nombre);
+        }
+        if (descripcion.isEmpty()) {
+            categoria.setDescripcion(null);
+        }else{
+            categoria.setDescripcion(descripcion);
+        }
+        if (!errores.equals("")) {
+            JOptionPane.showMessageDialog(null, errores);
+        }else{
+            ArrayList<Categoria> categorias = CategoriasController.buscar(categoria);
+            if (categorias.size() > 0) {
+                String categoriasString = "";
+                for (Categoria categoria1 : categorias) {
+                    categoriasString += categoria1.toString() + "\n";
+                }
+                taCategorias.setText(categoriasString);
+            }else{
+                JOptionPane.showMessageDialog(null, "No existe ningun elemento con esos datos");
+                taCategorias.setText("");
+            }
         }
     }
 
@@ -83,6 +208,8 @@ public class GestionarCategoriasView extends JFrame {
         bBuscar = new JButton();
         scrollPane1 = new JScrollPane();
         taCategorias = new JTextArea();
+        bVaciar = new JButton();
+        bBuscarTabla = new JButton();
 
         //======== this ========
         var contentPane = getContentPane();
@@ -111,11 +238,13 @@ public class GestionarCategoriasView extends JFrame {
 
         //---- bModificar ----
         bModificar.setText("Modificar");
+        bModificar.addActionListener(e -> bModificar(e));
         contentPane.add(bModificar);
         bModificar.setBounds(200, 205, 100, 27);
 
         //---- bEliminar ----
         bEliminar.setText("Eliminar");
+        bEliminar.addActionListener(e -> bEliminar(e));
         contentPane.add(bEliminar);
         bEliminar.setBounds(315, 205, 100, 27);
         contentPane.add(tfId);
@@ -127,6 +256,7 @@ public class GestionarCategoriasView extends JFrame {
 
         //---- bBuscar ----
         bBuscar.setText("Buscar");
+        bBuscar.addActionListener(e -> bBuscar(e));
         contentPane.add(bBuscar);
         bBuscar.setBounds(390, 75, 145, bBuscar.getPreferredSize().height);
 
@@ -138,9 +268,21 @@ public class GestionarCategoriasView extends JFrame {
             scrollPane1.setViewportView(taCategorias);
         }
         contentPane.add(scrollPane1);
-        scrollPane1.setBounds(50, 270, 575, 280);
+        scrollPane1.setBounds(50, 270, 730, 280);
 
-        contentPane.setPreferredSize(new Dimension(705, 615));
+        //---- bVaciar ----
+        bVaciar.setText("Vaciar campos/filtros");
+        bVaciar.addActionListener(e -> bVaciar(e));
+        contentPane.add(bVaciar);
+        bVaciar.setBounds(430, 205, 165, 27);
+
+        //---- bBuscarTabla ----
+        bBuscarTabla.setText("Buscar en la tabla");
+        bBuscarTabla.addActionListener(e -> bBuscarTabla(e));
+        contentPane.add(bBuscarTabla);
+        bBuscarTabla.setBounds(610, 205, 155, 27);
+
+        contentPane.setPreferredSize(new Dimension(875, 630));
         pack();
         setLocationRelativeTo(getOwner());
         // JFormDesigner - End of component initialization  //GEN-END:initComponents  @formatter:on
@@ -159,5 +301,7 @@ public class GestionarCategoriasView extends JFrame {
     private JButton bBuscar;
     private JScrollPane scrollPane1;
     private JTextArea taCategorias;
+    private JButton bVaciar;
+    private JButton bBuscarTabla;
     // JFormDesigner - End of variables declaration  //GEN-END:variables  @formatter:on
 }

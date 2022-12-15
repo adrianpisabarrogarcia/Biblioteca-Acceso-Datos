@@ -34,14 +34,88 @@ public class CategoriasController {
 
     public static void modificar(Categoria categoria) {
         logger.info("Modificar categoria");
+
+        eliminar(categoria);
+        insertar(categoria);
+
+        logger.info("Modificada categoria en existdb");
+    }
+
+    public static boolean existe(Categoria categoria) {
+        logger.info("Existe categoria");
+        boolean existe = false;
+
+        //Comprobar si existe en existdb
+        existe = ExistDB.existeElemento("Categorias","/list/categoria", categoria.getId());
+        System.out.println("Existe: " + existe);
+
+        return existe;
     }
 
     public static void eliminar(Categoria categoria) {
         logger.info("Eliminar categoria");
+
+        String id = ""+categoria.getId();
+        String elemento = "/list/categoria[@id='"+id+"']";
+        ExistDB.eliminarElemento("Categorias",elemento);
+
+        logger.info("Eliminada categoria en existdb");
     }
 
-    public static void buscar(Categoria categoria) {
+    public static ArrayList<Categoria> buscar(Categoria categoria) {
         logger.info("Buscar categoria");
+        ArrayList<Categoria> categorias = new ArrayList<>();
+
+        String query = "/list/categoria";
+        //montar la query
+        if(categoria.getId() != -1){
+            String id = ""+categoria.getId();
+            query += "[@id='"+id+"']";
+        }
+        if(categoria.getNombre() != null){
+            query += "[nombre='"+categoria.getNombre()+"']";
+        }
+        if(categoria.getDescripcion() != null){
+            query += "[descripcion='"+categoria.getDescripcion()+"']";
+        }
+
+        query = "for $i in doc('Categorias.xml')"+query+" return $i";
+
+
+        //Buscar en existdb
+        ResourceIterator resultado = ExistDB.consulta(query);
+        XStream xStream = Categoria.prepararXStream();
+        try{
+            while (resultado.hasMoreResources()) {
+                try {
+                    categoria = (Categoria) xStream.fromXML(resultado.nextResource().getContent().toString());
+                    categorias.add(categoria);
+                } catch (Exception e) {
+                    logger.error(e.getMessage());
+                }
+            }
+        } catch (XMLDBException e) {
+            logger.error("Error al listar categorias");
+            logger.error(e.getMessage());
+        }
+
+
+        return categorias;
+    }
+
+    public static Categoria buscarPorId(Categoria categoria) {
+        logger.info("Buscar categoria");
+
+        String id = ""+categoria.getId();
+        String elemento = "/list/categoria[@id='"+id+"']";
+        String xml = ExistDB.buscarElementoPorId("Categorias","/list/categoria", categoria.getId());
+        if(xml.equals("")){
+            return null;
+        }
+        //Pasar de String XML a objeto
+        XStream xstream = Categoria.prepararXStream();
+        Categoria categoriaEncontrada = (Categoria) xstream.fromXML(xml);
+        return categoriaEncontrada;
     }
 
     public static ArrayList<Categoria> listar() {

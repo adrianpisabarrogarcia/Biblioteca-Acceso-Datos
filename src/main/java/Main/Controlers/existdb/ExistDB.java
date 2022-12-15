@@ -193,7 +193,76 @@ public class ExistDB {
         ExistDB.desconectar(collection);
     }
 
+    //Eliminar un elemento
+    public static void eliminarElemento(String nombreXML, String elemento) {
+        //Conectar a existdb
+        Collection collection = null;
+        collection = ExistDB.conectar();
+        ResourceSet result = null;
+        //Eliminar el elemento
+        try {
+            XMLResource res = (XMLResource) collection.getResource(nombreXML+".xml");
+            XPathQueryService servicio = (XPathQueryService) collection.getService("XPathQueryService", "1.0");
+            result= servicio.query("update delete "+elemento);
 
+        } catch (XMLDBException e) {
+            logger.error("Error al eliminar el elemento");
+            logger.error(e.getMessage());
+        }
 
+        //Desconectar de existdb
+        ExistDB.desconectar(collection);
+    }
 
+    //Mirar si existe un elemento
+    public static boolean existeElemento(String nombreXML, String elemento, int id) {
+        //Conectar a existdb
+        Collection collection = null;
+        collection = ExistDB.conectar();
+        ResourceSet result = null;
+        //Eliminar el elemento
+        try {
+            XMLResource res = (XMLResource) collection.getResource( nombreXML+".xml");
+            XPathQueryService servicio = (XPathQueryService) collection.getService("XPathQueryService", "1.0");
+            result= servicio.query("for $x in "+elemento+" where $x/@id = '" + id + "' return $x");
+
+        } catch (XMLDBException e) {
+            logger.error("Error al eliminar el elemento");
+            logger.error(e.getMessage());
+        }
+
+        //Desconectar de existdb
+        ExistDB.desconectar(collection);
+        try {
+            return result.getSize()>0;
+        } catch (XMLDBException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    //Devuelve el resultado de la busqueda por id del elemento
+    public static String buscarElementoPorId(String categorias, String elemento, int id) {
+        //Conectar a existdb
+        Collection collection = null;
+        collection = ExistDB.conectar();
+        ResourceSet result = null;
+        //Buscar el elemento
+        try {
+            XMLResource res = (XMLResource) collection.getResource(categorias+".xml");
+            XPathQueryService servicio = (XPathQueryService) collection.getService("XPathQueryService", "1.0");
+            result= servicio.query("for $x in "+elemento+" where $x/@id = '" + id + "' return $x");
+
+        } catch (XMLDBException e) {
+            logger.error("Error al eliminar el elemento");
+            logger.error(e.getMessage());
+        }
+
+        //Desconectar de existdb
+        ExistDB.desconectar(collection);
+        try {
+            return result.getResource(0).getContent().toString();
+        } catch (Exception e) {
+            return "";
+        }
+    }
 }
