@@ -63,17 +63,17 @@ public class Main {
     }
 
     private static void generarXMLCategoria() {
-        logger.info("Generando XML Categorias");
+        logger.info("Generando XML GestionarCategoriasView");
         ArrayList<Categoria> categorias = AnadirObjetos.anadirCategoriasLibros();
         EscribirFicherosXML.generarCategorias(categorias);
-        logger.info("XML Categorias generado");
+        logger.info("XML GestionarCategoriasView generado");
     }
 
     private static void generarXMLUsuarios() {
-        logger.info("Generando XML Categorias");
+        logger.info("Generando XML GestionarCategoriasView");
         ArrayList<Usuario> usuarios = AnadirObjetos.anadirUsuarios();
         EscribirFicherosXML.generarUsuarios(usuarios);
-        logger.info("XML Categorias generado");
+        logger.info("XML GestionarCategoriasView generado");
         
     }
 
@@ -102,7 +102,7 @@ public class Main {
     }
 
     private static void generarXMLAlquilerLibroCategoriaUsuario() {
-        logger.info("Generando XML de Alquileres, Libros, Categorias y Usuarios");
+        logger.info("Generando XML de Alquileres, Libros, GestionarCategoriasView y Usuarios");
         //Crear objetos
         ArrayList<Usuario> usuarios = AnadirObjetos.anadirUsuarios();
         ArrayList<Categoria> categoriasLibros = AnadirObjetos.anadirCategoriasLibros();
@@ -131,7 +131,7 @@ public class Main {
             alquileresLibroUsuarios.add(alquilerLibroUsuario);
         }
         EscribirFicherosXML.generarAlquileresLibrosUsuarios(alquileresLibroUsuarios);
-        logger.info("XML de Alquileres, Libros, Categorias y Usuarios generado");
+        logger.info("XML de Alquileres, Libros, GestionarCategoriasView y Usuarios generado");
     }
 
 }

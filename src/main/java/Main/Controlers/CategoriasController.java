@@ -1,6 +1,7 @@
 package Main.Controlers;
 
 
+import Main.Controlers.Conveters.CategoriaConverter;
 import Main.Controlers.XStream.EscribirFicherosXML;
 import Main.Controlers.existdb.ExistDB;
 import Main.Models.Categoria;
@@ -17,7 +18,18 @@ public class CategoriasController {
     private static final Logger logger = Logger.getLogger(CategoriasController.class);
 
     public static void insertar(Categoria categoria) {
-        System.out.println("Insertar categoria");
+        logger.info("Insertar categoria");
+
+        //Pasar de objeto a String XML
+        XStream xstream = new XStream();
+        xstream = Categoria.prepararXStream();
+        String xml = xstream.toXML(categoria);
+
+
+        //Insertar en existdb
+        ExistDB.insertarElemento("Categorias",xml,"/list");
+
+        logger.info("Insertada categoria en existdb");
     }
 
     public static void modificar(Categoria categoria) {
@@ -43,7 +55,6 @@ public class CategoriasController {
                 try {
                     Categoria categoria = (Categoria) xStream.fromXML(resultado.nextResource().getContent().toString());
                     categorias.add(categoria);
-                    System.out.println(categoria);
                 } catch (Exception e) {
                     logger.error(e.getMessage());
                 }
@@ -52,7 +63,7 @@ public class CategoriasController {
             logger.error("Error al listar categorias");
             logger.error(e.getMessage());
         }
-        logger.info("Categorias listadas");
+        logger.info("GestionarCategoriasView listadas");
 
         return categorias;
     }

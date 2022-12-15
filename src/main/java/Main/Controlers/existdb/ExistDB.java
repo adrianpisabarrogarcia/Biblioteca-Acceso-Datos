@@ -172,6 +172,27 @@ public class ExistDB {
 
     }
 
+    //Insertar un elemento
+    public static void insertarElemento(String nombreXML, String stringXML, String elemento) {
+        //Conectar a existdb
+        Collection collection = null;
+        collection = ExistDB.conectar();
+        ResourceSet result = null;
+        //Insertar el elemento
+        try {
+            XMLResource res = (XMLResource) collection.getResource(nombreXML+".xml");
+            XPathQueryService servicio = (XPathQueryService) collection.getService("XPathQueryService", "1.0");
+            result= servicio.query("update insert " + stringXML + " into "+elemento);
+
+        } catch (XMLDBException e) {
+            logger.error("Error al insertar el elemento");
+            logger.error(e.getMessage());
+        }
+
+        //Desconectar de existdb
+        ExistDB.desconectar(collection);
+    }
+
 
 
 

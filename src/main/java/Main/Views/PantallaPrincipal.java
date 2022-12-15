@@ -4,7 +4,8 @@
 
 package Main.Views;
 
-import Main.Views.Libros.GestionarLibros;
+import Main.Views.Categorias.GestionarCategoriasView;
+import Main.Views.Libros.GestionarLibrosView;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -20,8 +21,13 @@ public class PantallaPrincipal extends JFrame {
     }
 
     private void mGestinarLibros(ActionEvent e) {
-        GestionarLibros gestionarLibros = new GestionarLibros();
-        gestionarLibros.setVisible(true);
+        GestionarLibrosView gestionarLibrosView = new GestionarLibrosView();
+        gestionarLibrosView.setVisible(true);
+    }
+
+    private void mGestionarCategorias(ActionEvent e) {
+        GestionarCategoriasView gestionarCategoriasView = new GestionarCategoriasView();
+        gestionarCategoriasView.setVisible(true);
     }
 
     private void initComponents() {
@@ -32,6 +38,7 @@ public class PantallaPrincipal extends JFrame {
         menuItem2 = new JMenuItem();
         menu2 = new JMenu();
         menu3 = new JMenu();
+        mGestionarCategorias = new JMenuItem();
         menu4 = new JMenu();
         label1 = new JLabel();
         label2 = new JLabel();
@@ -67,6 +74,11 @@ public class PantallaPrincipal extends JFrame {
             //======== menu3 ========
             {
                 menu3.setText("Categor\u00edas de Libros");
+
+                //---- mGestionarCategorias ----
+                mGestionarCategorias.setText("Insertar, modificar y eliminar");
+                mGestionarCategorias.addActionListener(e -> mGestionarCategorias(e));
+                menu3.add(mGestionarCategorias);
             }
             menuBar1.add(menu3);
 
@@ -103,6 +115,7 @@ public class PantallaPrincipal extends JFrame {
     private JMenuItem menuItem2;
     private JMenu menu2;
     private JMenu menu3;
+    private JMenuItem mGestionarCategorias;
     private JMenu menu4;
     private JLabel label1;
     private JLabel label2;

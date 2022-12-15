@@ -58,10 +58,10 @@ public class EscribirFicherosXML {
 
         //Escribir fichero XML
         try {
-            xstream.toXML(categoriasArrayList, new FileOutputStream("Categorias.xml"));
-            logger.info("Fichero XML Categorias.xml generado");
+            xstream.toXML(categoriasArrayList, new FileOutputStream("GestionarCategoriasView.xml"));
+            logger.info("Fichero XML GestionarCategoriasView.xml generado");
         } catch (Exception e) {
-            logger.error("Error al escribir Categorias el fichero XML");
+            logger.error("Error al escribir GestionarCategoriasView el fichero XML");
             logger.error(e.getMessage());
         }
     }

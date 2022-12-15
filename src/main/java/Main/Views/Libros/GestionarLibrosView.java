@@ -14,8 +14,8 @@ import javax.swing.*;
 /**
  * @author unknown
  */
-public class GestionarLibros extends JFrame {
-    public GestionarLibros() {
+public class GestionarLibrosView extends JFrame {
+    public GestionarLibrosView() {
         initComponents();
         setTitle("Gestionar Libros");
         cargarCombo();
