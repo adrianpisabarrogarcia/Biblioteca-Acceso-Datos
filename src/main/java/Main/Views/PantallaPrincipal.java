@@ -20,26 +20,23 @@ public class PantallaPrincipal extends JFrame {
         setTitle("Biblioteca Pantalla Principal");
     }
 
-    private void mGestinarLibros(ActionEvent e) {
-        GestionarLibrosView gestionarLibrosView = new GestionarLibrosView();
-        gestionarLibrosView.setVisible(true);
-    }
-
-    private void mGestionarCategorias(ActionEvent e) {
+    private void mCategorias(ActionEvent e) {
         GestionarCategoriasView gestionarCategoriasView = new GestionarCategoriasView();
         gestionarCategoriasView.setVisible(true);
+    }
+
+    private void mLibros(ActionEvent e) {
+        GestionarLibrosView gestionarLibrosView = new GestionarLibrosView();
+        gestionarLibrosView.setVisible(true);
     }
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents  @formatter:off
         menuBar1 = new JMenuBar();
-        menu1 = new JMenu();
-        mGestinarLibros = new JMenuItem();
-        menuItem2 = new JMenuItem();
         menu2 = new JMenu();
-        menu3 = new JMenu();
-        mGestionarCategorias = new JMenuItem();
         menu4 = new JMenu();
+        mCategorias = new JMenuItem();
+        mLibros = new JMenuItem();
         label1 = new JLabel();
         label2 = new JLabel();
 
@@ -50,43 +47,27 @@ public class PantallaPrincipal extends JFrame {
         //======== menuBar1 ========
         {
 
-            //======== menu1 ========
-            {
-                menu1.setText("Libros");
-
-                //---- mGestinarLibros ----
-                mGestinarLibros.setText("Insertar, Modificar, Eliminar");
-                mGestinarLibros.addActionListener(e -> mGestinarLibros(e));
-                menu1.add(mGestinarLibros);
-
-                //---- menuItem2 ----
-                menuItem2.setText("Listar");
-                menu1.add(menuItem2);
-            }
-            menuBar1.add(menu1);
-
             //======== menu2 ========
             {
                 menu2.setText("Usuarios");
             }
             menuBar1.add(menu2);
 
-            //======== menu3 ========
-            {
-                menu3.setText("Categor\u00edas de Libros");
-
-                //---- mGestionarCategorias ----
-                mGestionarCategorias.setText("Insertar, modificar y eliminar");
-                mGestionarCategorias.addActionListener(e -> mGestionarCategorias(e));
-                menu3.add(mGestionarCategorias);
-            }
-            menuBar1.add(menu3);
-
             //======== menu4 ========
             {
                 menu4.setText("Alquileres");
             }
             menuBar1.add(menu4);
+
+            //---- mCategorias ----
+            mCategorias.setText("Categor\u00edas de Libros");
+            mCategorias.addActionListener(e -> mCategorias(e));
+            menuBar1.add(mCategorias);
+
+            //---- mLibros ----
+            mLibros.setText("Libros");
+            mLibros.addActionListener(e -> mLibros(e));
+            menuBar1.add(mLibros);
         }
         setJMenuBar(menuBar1);
 
@@ -110,13 +91,10 @@ public class PantallaPrincipal extends JFrame {
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables  @formatter:off
     private JMenuBar menuBar1;
-    private JMenu menu1;
-    private JMenuItem mGestinarLibros;
-    private JMenuItem menuItem2;
     private JMenu menu2;
-    private JMenu menu3;
-    private JMenuItem mGestionarCategorias;
     private JMenu menu4;
+    private JMenuItem mCategorias;
+    private JMenuItem mLibros;
     private JLabel label1;
     private JLabel label2;
     // JFormDesigner - End of variables declaration  //GEN-END:variables  @formatter:on

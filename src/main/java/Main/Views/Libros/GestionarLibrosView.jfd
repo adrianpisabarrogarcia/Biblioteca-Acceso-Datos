@@ -70,6 +70,7 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "bInsertar"
 				"text": "Insertar"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "bInsertar", true ) )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"x": 65
 				"y": 400
@@ -78,6 +79,7 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "bModificar"
 				"text": "Modificar"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "bModificar", true ) )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"width": 100
 				"height": 27
@@ -87,6 +89,7 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "bEliminar"
 				"text": "Eliminar"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "bEliminar", true ) )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"width": 100
 				"height": 27
@@ -94,14 +97,14 @@ new FormModel {
 				"y": 400
 			} )
 			add( new FormComponent( "javax.swing.JTextField" ) {
-				name: "textField1"
+				name: "tfId"
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"x": 170
 				"y": 75
 				"width": 200
 			} )
 			add( new FormComponent( "javax.swing.JTextField" ) {
-				name: "textField2"
+				name: "tfTitulo"
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"width": 415
 				"height": 27
@@ -109,7 +112,7 @@ new FormModel {
 				"y": 115
 			} )
 			add( new FormComponent( "javax.swing.JTextField" ) {
-				name: "textField3"
+				name: "tfAutor"
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"width": 415
 				"height": 27
@@ -119,13 +122,14 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "bBuscar"
 				"text": "Buscar"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "bBuscar", true ) )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"x": 390
 				"y": 75
 				"width": 145
 			} )
 			add( new FormComponent( "javax.swing.JTextField" ) {
-				name: "textField4"
+				name: "tfEditorial"
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"width": 415
 				"height": 27
@@ -133,7 +137,7 @@ new FormModel {
 				"y": 200
 			} )
 			add( new FormComponent( "javax.swing.JTextField" ) {
-				name: "textField5"
+				name: "tfAnio"
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"width": 415
 				"height": 27
@@ -141,7 +145,7 @@ new FormModel {
 				"y": 240
 			} )
 			add( new FormComponent( "javax.swing.JTextField" ) {
-				name: "textField6"
+				name: "tfISBN"
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"width": 415
 				"height": 27
@@ -155,9 +159,47 @@ new FormModel {
 				"y": 325
 				"width": 415
 			} )
+			add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
+				name: "scrollPane1"
+				add( new FormComponent( "javax.swing.JTextArea" ) {
+					name: "taResultados"
+				} )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 640
+				"y": 75
+				"width": 425
+				"height": 205
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "bVaciar"
+				"text": "Vaciar filtro y campos"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "bVaciar", true ) )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 415
+				"y": 400
+				"width": 185
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "bFiltrar"
+				"text": "Filtrar"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "bFiltrar", true ) )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 630
+				"y": 400
+				"width": 115
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "bFiltrarPorCategoria"
+				"text": "Filtrar por categoría"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "bFiltrarPorCategoria", true ) )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 760
+				"y": 400
+				"width": 150
+			} )
 		}, new FormLayoutConstraints( null ) {
 			"location": new java.awt.Point( 0, 5 )
-			"size": new java.awt.Dimension( 705, 510 )
+			"size": new java.awt.Dimension( 1120, 490 )
 		} )
 	}
 }

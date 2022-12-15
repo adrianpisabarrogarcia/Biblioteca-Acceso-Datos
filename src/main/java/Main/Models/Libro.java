@@ -1,5 +1,10 @@
 package Main.Models;
 
+import Main.Controlers.Conveters.CategoriaConverter;
+import Main.Controlers.Conveters.LibrosConverter;
+import com.thoughtworks.xstream.XStream;
+import com.thoughtworks.xstream.io.xml.DomDriver;
+
 import java.io.Serializable;
 
 public class Libro implements Serializable {
@@ -93,4 +98,25 @@ public class Libro implements Serializable {
                 ", categoria=" + categoria +
                 '}';
     }
+
+    public static XStream prepararXStream(){
+        XStream xstream = new XStream(new DomDriver());
+        //Convertidor para parsear a un objeto
+        xstream.registerConverter(new LibrosConverter());
+        //Sin referencias circulares
+        xstream.setMode(XStream.NO_REFERENCES);
+        //Añadir alias
+        xstream.alias("libro", Libro.class);
+        xstream.alias("categoria", Categoria.class);
+        //Añadir atributos
+        xstream.useAttributeFor(Libro.class, "id");
+        xstream.useAttributeFor(Categoria.class, "id");
+        //Allow types
+        xstream.allowTypes(new Class[]{Categoria.class});
+        xstream.allowTypes(new Class[]{Libro.class});
+
+        return xstream;
+    }
+
+
 }
