@@ -4,7 +4,11 @@
 
 package Main.Views.Libros;
 
+import Main.Controlers.CategoriasController;
+import Main.Models.Categoria;
+
 import java.awt.*;
+import java.util.ArrayList;
 import javax.swing.*;
 
 /**
@@ -14,7 +18,16 @@ public class GestionarLibros extends JFrame {
     public GestionarLibros() {
         initComponents();
         setTitle("Gestionar Libros");
+        cargarCombo();
     }
+
+    private void cargarCombo() {
+        ArrayList<Categoria> categorias = CategoriasController.listar();
+        for (Categoria categoria : categorias) {
+            cbCategorias.addItem(categoria.getId() + " - " +categoria.getNombre());
+        }
+    }
+
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents  @formatter:off
@@ -35,7 +48,7 @@ public class GestionarLibros extends JFrame {
         textField4 = new JTextField();
         textField5 = new JTextField();
         textField6 = new JTextField();
-        comboBox1 = new JComboBox();
+        cbCategorias = new JComboBox();
 
         //======== this ========
         var contentPane = getContentPane();
@@ -107,8 +120,8 @@ public class GestionarLibros extends JFrame {
         textField5.setBounds(170, 240, 415, 27);
         contentPane.add(textField6);
         textField6.setBounds(170, 280, 415, 27);
-        contentPane.add(comboBox1);
-        comboBox1.setBounds(170, 325, 415, comboBox1.getPreferredSize().height);
+        contentPane.add(cbCategorias);
+        cbCategorias.setBounds(170, 325, 415, cbCategorias.getPreferredSize().height);
 
         contentPane.setPreferredSize(new Dimension(705, 510));
         pack();
@@ -134,6 +147,6 @@ public class GestionarLibros extends JFrame {
     private JTextField textField4;
     private JTextField textField5;
     private JTextField textField6;
-    private JComboBox comboBox1;
+    private JComboBox cbCategorias;
     // JFormDesigner - End of variables declaration  //GEN-END:variables  @formatter:on
 }

@@ -1,5 +1,9 @@
 package Main.Models;
 
+import Main.Controlers.Conveters.CategoriaConverter;
+import com.thoughtworks.xstream.XStream;
+import com.thoughtworks.xstream.io.xml.DomDriver;
+
 import java.io.Serializable;
 
 public class Categoria implements Serializable {
@@ -40,6 +44,21 @@ public class Categoria implements Serializable {
         this.descripcion = descripcion;
     }
 
+    public static XStream prepararXStream(){
+        XStream xstream = new XStream(new DomDriver());
+        //Convertidor para parsear a un objeto
+        xstream.registerConverter(new CategoriaConverter());
+        //Sin referencias circulares
+        xstream.setMode(XStream.NO_REFERENCES);
+        //Añadir alias
+        xstream.alias("categoria", Categoria.class);
+        //Añadir atributos
+        xstream.useAttributeFor(Categoria.class, "id");
+        //Allow types
+        xstream.allowTypes(new Class[]{Categoria.class});
+
+        return xstream;
+    }
     @Override
     public String toString() {
         return "Categoria{" + "id=" + id + ", nombre=" + nombre + ", descripcion=" + descripcion + '}';

@@ -2,6 +2,7 @@ package Main.Controlers.XStream;
 
 import Main.Controlers.XStream.SpecificModels.CategoriaLibros;
 import Main.Models.Alquiler;
+import Main.Models.Categoria;
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.DomDriver;
 import com.thoughtworks.xstream.security.AnyTypePermission;

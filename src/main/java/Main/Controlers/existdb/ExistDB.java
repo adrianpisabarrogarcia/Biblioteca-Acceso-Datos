@@ -1,14 +1,16 @@
 package Main.Controlers.existdb;
 
+import Main.Models.Categoria;
 import org.apache.log4j.Logger;
 import org.xmldb.api.DatabaseManager;
-import org.xmldb.api.base.Collection;
-import org.xmldb.api.base.Database;
-import org.xmldb.api.base.XMLDBException;
+import org.xmldb.api.base.*;
 import org.xmldb.api.modules.XMLResource;
+import org.xmldb.api.modules.XPathQueryService;
 
 import java.io.File;
 import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
+import java.util.Objects;
 
 public class ExistDB {
 
@@ -73,7 +75,7 @@ public class ExistDB {
         }
     }
 
-    //Cargar XML
+    //Importar
     public static void cargarXML(String nombreXML) {
         //Conectar a existdb
         Collection collection = null;
@@ -115,4 +117,62 @@ public class ExistDB {
         //Desconectar de existdb
         ExistDB.desconectar(collection);
     }
+
+    //Listar un objeto
+    public static String listarObjeto(String nombreXML) {
+        //Conectar a existdb
+        Collection collection = null;
+        collection = ExistDB.conectar();
+
+        //Listar el XML
+        String resultado = "";
+        try {
+            XMLResource res = (XMLResource) collection.getResource(nombreXML+".xml");
+            resultado = res.getContent().toString();
+        } catch (XMLDBException e) {
+            logger.error("Error al listar el recurso");
+            logger.error(e.getMessage());
+        }
+
+        //Desconectar de existdb
+        ExistDB.desconectar(collection);
+
+        //Devolver el resultado
+        return resultado;
+    }
+
+    //hacer una consulta
+    public static ResourceIterator consulta(String query) {
+        //Conectar a existdb
+        Collection collection = null;
+        collection = ExistDB.conectar();
+        XPathQueryService servicio;
+
+        String resultado = "";
+
+        try {
+            servicio = (XPathQueryService) collection.getService("XPathQueryService", "1.0");
+            //Preparamos la consulta
+            ResourceSet result = servicio.query(query);
+            //Recorrer los datos del recurso.
+            ResourceIterator i;
+            i = result.getIterator();
+            return i;
+        } catch (XMLDBException e) {
+            logger.error("Error al listar el recurso");
+            logger.error(e.getMessage());
+        }
+        //Desconectar de existdb
+        ExistDB.desconectar(collection);
+
+        return null;
+
+
+
+
+    }
+
+
+
+
 }

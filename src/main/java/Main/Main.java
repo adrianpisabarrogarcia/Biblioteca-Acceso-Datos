@@ -1,6 +1,7 @@
 package Main;
 
 import Main.Controlers.AnadirObjetos;
+import Main.Controlers.CategoriasController;
 import Main.Controlers.XStream.EscribirFicherosXML;
 import Main.Controlers.XStream.LeerFicherosXML;
 import Main.Controlers.XStream.ListaAlquileresLibrosUsuarios;
@@ -47,6 +48,9 @@ public class Main {
         //Cargar la vista principal
         PantallaPrincipal pantallaPrincipal = new PantallaPrincipal();
         pantallaPrincipal.setVisible(true);
+
+        ArrayList<Categoria> categorias = CategoriasController.listar();
+
 
     }
 

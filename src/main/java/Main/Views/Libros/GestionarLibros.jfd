@@ -149,7 +149,7 @@ new FormModel {
 				"y": 280
 			} )
 			add( new FormComponent( "javax.swing.JComboBox" ) {
-				name: "comboBox1"
+				name: "cbCategorias"
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"x": 170
 				"y": 325

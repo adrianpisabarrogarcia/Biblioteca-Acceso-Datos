@@ -1,25 +1,31 @@
 package Main.Controlers;
 
+import Main.Controlers.existdb.ExistDB;
 import Main.Models.Libro;
+import org.apache.log4j.Logger;
 
 public class LibrosController {
-    public void insertar(Libro libro) {
-        System.out.println("Insertar libro");
+
+    private static final Logger logger = Logger.getLogger(LibrosController.class);
+
+    public static void insertar(Libro libro) {
+        logger.info("Insertar libro");
+
     }
 
-    public void modificar(Libro libro) {
+    public static void modificar(Libro libro) {
         System.out.println("Modificar libro");
     }
 
-    public void eliminar(Libro libro) {
+    public static void eliminar(Libro libro) {
         System.out.println("Eliminar libro");
     }
 
-    public void buscar(Libro libro) {
+    public static void buscar(Libro libro) {
         System.out.println("Buscar libro");
     }
 
-    public void listar() {
+    public static void listar() {
         System.out.println("Listar libros");
     }
 }
