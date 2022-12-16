@@ -154,6 +154,7 @@ public class ExistDB {
             servicio = (XPathQueryService) collection.getService("XPathQueryService", "1.0");
             //Preparamos la consulta
             ResourceSet result = servicio.query(query);
+            logger.debug(query);
             //Recorrer los datos del recurso.
             ResourceIterator i;
             i = result.getIterator();
@@ -183,6 +184,7 @@ public class ExistDB {
             XMLResource res = (XMLResource) collection.getResource(nombreXML+".xml");
             XPathQueryService servicio = (XPathQueryService) collection.getService("XPathQueryService", "1.0");
             result= servicio.query("update insert " + stringXML + " into "+elemento);
+            logger.debug("update insert " + stringXML + " into "+elemento);
 
         } catch (XMLDBException e) {
             logger.error("Error al insertar el elemento");
@@ -204,6 +206,7 @@ public class ExistDB {
             XMLResource res = (XMLResource) collection.getResource(nombreXML+".xml");
             XPathQueryService servicio = (XPathQueryService) collection.getService("XPathQueryService", "1.0");
             result= servicio.query("update delete "+elemento);
+            logger.debug("update delete "+elemento);
 
         } catch (XMLDBException e) {
             logger.error("Error al eliminar el elemento");
@@ -225,6 +228,7 @@ public class ExistDB {
             XMLResource res = (XMLResource) collection.getResource( nombreXML+".xml");
             XPathQueryService servicio = (XPathQueryService) collection.getService("XPathQueryService", "1.0");
             result= servicio.query("for $x in "+elemento+" where $x/@id = '" + id + "' return $x");
+            logger.debug("for $x in "+elemento+" where $x/@id = '" + id + "' return $x");
 
         } catch (XMLDBException e) {
             logger.error("Error al eliminar el elemento");
@@ -251,6 +255,7 @@ public class ExistDB {
             XMLResource res = (XMLResource) collection.getResource(categorias+".xml");
             XPathQueryService servicio = (XPathQueryService) collection.getService("XPathQueryService", "1.0");
             result= servicio.query("for $x in "+elemento+" where $x/@id = '" + id + "' return $x");
+            logger.debug("for $x in "+elemento+" where $x/@id = '" + id + "' return $x");
 
         } catch (XMLDBException e) {
             logger.error("Error al eliminar el elemento");
