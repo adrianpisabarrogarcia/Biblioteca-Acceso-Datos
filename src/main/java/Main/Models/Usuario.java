@@ -1,5 +1,12 @@
 package Main.Models;
 
+import Main.Controlers.Conveters.CategoriaConverter;
+import Main.Controlers.Conveters.UsuarioConverter;
+import Main.Controlers.XStream.ListaCategoriasLibros;
+import Main.Controlers.XStream.SpecificModels.CategoriaLibros;
+import com.thoughtworks.xstream.XStream;
+import com.thoughtworks.xstream.io.xml.DomDriver;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -72,15 +79,35 @@ public class Usuario implements Serializable {
         this.direccion = direccion;
     }
 
+    //format date
+    public String getFechaNacimientoString() {
+        return fechaNacimiento.getDate() + "/" + (fechaNacimiento.getMonth() + 1) + "/" + (fechaNacimiento.getYear());
+    }
     @Override
     public String toString() {
         return "Usuario{" +
                 "id=" + id +
                 ", nombre='" + nombre + '\'' +
                 ", apellidos='" + apellidos + '\'' +
-                ", fechaNacimiento=" + fechaNacimiento +
+                ", fechaNacimiento=" + getFechaNacimientoString() +
                 ", email='" + email + '\'' +
                 ", direccion='" + direccion + '\'' +
                 '}';
+    }
+
+    public static XStream prepararXStream(){
+        XStream xstream = new XStream(new DomDriver());
+        //Convertidor para parsear a un objeto
+        xstream.registerConverter(new UsuarioConverter());
+        //Sin referencias circulares
+        xstream.setMode(XStream.NO_REFERENCES);
+        //Añadir alias
+        xstream.alias("usuario", Usuario.class);
+        //Añadir atributos
+        xstream.useAttributeFor(Usuario.class, "id");
+        //Allow types
+        xstream.allowTypes(new Class[]{Usuario.class});
+
+        return xstream;
     }
 }

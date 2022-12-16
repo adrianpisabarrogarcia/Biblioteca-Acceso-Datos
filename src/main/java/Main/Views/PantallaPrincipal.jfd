@@ -30,10 +30,6 @@ new FormModel {
 			menuBar: new FormContainer( "javax.swing.JMenuBar", new FormLayoutManager( class javax.swing.JMenuBar ) ) {
 				name: "menuBar1"
 				add( new FormContainer( "javax.swing.JMenu", new FormLayoutManager( class javax.swing.JMenu ) ) {
-					name: "menu2"
-					"text": "Usuarios"
-				} )
-				add( new FormContainer( "javax.swing.JMenu", new FormLayoutManager( class javax.swing.JMenu ) ) {
 					name: "menu4"
 					"text": "Alquileres"
 				} )
@@ -46,6 +42,11 @@ new FormModel {
 					name: "mLibros"
 					"text": "Libros"
 					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "mLibros", true ) )
+				} )
+				add( new FormComponent( "javax.swing.JMenuItem" ) {
+					name: "mUsuarios"
+					"text": "Usuarios"
+					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "mUsuarios", true ) )
 				} )
 			}
 		}, new FormLayoutConstraints( null ) {

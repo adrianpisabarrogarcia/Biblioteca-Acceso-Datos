@@ -104,7 +104,7 @@ public class AnadirObjetos {
         usuario1.setDireccion("Calle 1");
         usuario1.setEmail("juanperez@gmail.com");
         usuarios.add(usuario1);
-        Date fecha = new Date(1990, 12, 12);
+        Date fecha = new Date(1993, 07, 12);
         usuario1.setFechaNacimiento(fecha);
         Usuario usuario2 = new Usuario();
         usuario2.setId(2);
@@ -121,7 +121,7 @@ public class AnadirObjetos {
         usuario3.setApellidos("Garcia");
         usuario3.setDireccion("Calle 3");
         usuario3.setEmail("pedrogarcia@gmail.com");
-        Date fecha3 = new Date(1990, 12, 12);
+        Date fecha3 = new Date(2002, 3, 23);
         usuario3.setFechaNacimiento(fecha3);
         usuarios.add(usuario3);
         Usuario usuario4 = new Usuario();
@@ -130,7 +130,7 @@ public class AnadirObjetos {
         usuario4.setApellidos("Lopez");
         usuario4.setDireccion("Calle 4");
         usuario4.setEmail("luislopez@gmail.com");
-        Date fecha4 = new Date(1990, 12, 12);
+        Date fecha4 = new Date(2022, 2, 2);
         usuario4.setFechaNacimiento(fecha4);
         usuarios.add(usuario4);
         Usuario usuario5 = new Usuario();
@@ -139,7 +139,7 @@ public class AnadirObjetos {
         usuario5.setApellidos("Martinez");
         usuario5.setDireccion("Calle 5");
         usuario5.setEmail("anamartinez@gmail.com");
-        Date fecha5 = new Date(1990, 12, 12);
+        Date fecha5 = new Date(1994, 5, 4);
         usuario5.setFechaNacimiento(fecha5);
         usuarios.add(usuario5);
         Usuario usuario6 = new Usuario();

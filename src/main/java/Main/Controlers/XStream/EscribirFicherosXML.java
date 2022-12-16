@@ -1,5 +1,6 @@
 package Main.Controlers.XStream;
 
+import Main.Controlers.Conveters.UsuarioConverter;
 import Main.Controlers.XStream.SpecificModels.AlquilerLibroUsuario;
 import Main.Controlers.XStream.SpecificModels.CategoriaLibros;
 import Main.Main;
@@ -58,7 +59,7 @@ public class EscribirFicherosXML {
 
         //Escribir fichero XML
         try {
-            xstream.toXML(categoriasArrayList, new FileOutputStream("GestionarCategoriasView.xml"));
+            xstream.toXML(categoriasArrayList, new FileOutputStream("Categorias.xml"));
             logger.info("Fichero XML GestionarCategoriasView.xml generado");
         } catch (Exception e) {
             logger.error("Error al escribir GestionarCategoriasView el fichero XML");
@@ -76,6 +77,9 @@ public class EscribirFicherosXML {
         xstream.alias("usuario", Usuario.class);
         //Añadir atributos
         xstream.useAttributeFor(Usuario.class, "id");
+
+        //utilizar usuarioConverter
+        xstream.registerConverter(new UsuarioConverter());
 
         //Escribir fichero XML
         try {

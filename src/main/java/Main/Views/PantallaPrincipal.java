@@ -6,6 +6,7 @@ package Main.Views;
 
 import Main.Views.Categorias.GestionarCategoriasView;
 import Main.Views.Libros.GestionarLibrosView;
+import Main.Views.Usuarios.GestionarUsuariosView;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -30,13 +31,18 @@ public class PantallaPrincipal extends JFrame {
         gestionarLibrosView.setVisible(true);
     }
 
+    private void mUsuarios(ActionEvent e) {
+        GestionarUsuariosView gestionarUsuariosView = new GestionarUsuariosView();
+        gestionarUsuariosView.setVisible(true);
+    }
+
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents  @formatter:off
         menuBar1 = new JMenuBar();
-        menu2 = new JMenu();
         menu4 = new JMenu();
         mCategorias = new JMenuItem();
         mLibros = new JMenuItem();
+        mUsuarios = new JMenuItem();
         label1 = new JLabel();
         label2 = new JLabel();
 
@@ -46,12 +52,6 @@ public class PantallaPrincipal extends JFrame {
 
         //======== menuBar1 ========
         {
-
-            //======== menu2 ========
-            {
-                menu2.setText("Usuarios");
-            }
-            menuBar1.add(menu2);
 
             //======== menu4 ========
             {
@@ -68,6 +68,11 @@ public class PantallaPrincipal extends JFrame {
             mLibros.setText("Libros");
             mLibros.addActionListener(e -> mLibros(e));
             menuBar1.add(mLibros);
+
+            //---- mUsuarios ----
+            mUsuarios.setText("Usuarios");
+            mUsuarios.addActionListener(e -> mUsuarios(e));
+            menuBar1.add(mUsuarios);
         }
         setJMenuBar(menuBar1);
 
@@ -91,10 +96,10 @@ public class PantallaPrincipal extends JFrame {
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables  @formatter:off
     private JMenuBar menuBar1;
-    private JMenu menu2;
     private JMenu menu4;
     private JMenuItem mCategorias;
     private JMenuItem mLibros;
+    private JMenuItem mUsuarios;
     private JLabel label1;
     private JLabel label2;
     // JFormDesigner - End of variables declaration  //GEN-END:variables  @formatter:on
