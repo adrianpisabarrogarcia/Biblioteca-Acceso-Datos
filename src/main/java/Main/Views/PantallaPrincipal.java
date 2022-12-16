@@ -39,7 +39,6 @@ public class PantallaPrincipal extends JFrame {
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents  @formatter:off
         menuBar1 = new JMenuBar();
-        menu4 = new JMenu();
         mCategorias = new JMenuItem();
         mLibros = new JMenuItem();
         mUsuarios = new JMenuItem();
@@ -52,12 +51,6 @@ public class PantallaPrincipal extends JFrame {
 
         //======== menuBar1 ========
         {
-
-            //======== menu4 ========
-            {
-                menu4.setText("Alquileres");
-            }
-            menuBar1.add(menu4);
 
             //---- mCategorias ----
             mCategorias.setText("Categor\u00edas de Libros");
@@ -96,7 +89,6 @@ public class PantallaPrincipal extends JFrame {
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables  @formatter:off
     private JMenuBar menuBar1;
-    private JMenu menu4;
     private JMenuItem mCategorias;
     private JMenuItem mLibros;
     private JMenuItem mUsuarios;

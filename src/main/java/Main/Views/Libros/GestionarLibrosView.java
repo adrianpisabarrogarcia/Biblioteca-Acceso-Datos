@@ -7,6 +7,8 @@ package Main.Views.Libros;
 import java.awt.event.*;
 import Main.Controlers.CategoriasController;
 import Main.Controlers.LibrosController;
+import Main.Controlers.dat.EscribirFicheros;
+import Main.Controlers.dat.LeerFicheros;
 import Main.Models.Categoria;
 import Main.Models.Libro;
 
@@ -289,6 +291,7 @@ public class GestionarLibrosView extends JFrame {
                 for (Libro libro1 : libros) {
                     datos += libro1.toString() + "\n";
                 }
+                generarDat(libros);
             }else{
                 JOptionPane.showMessageDialog(this, "No se han encontrado libros");
             }
@@ -296,6 +299,17 @@ public class GestionarLibrosView extends JFrame {
         } else {
             JOptionPane.showMessageDialog(this, errores);
         }
+    }
+
+    private void generarDat(ArrayList<Libro> libros) {
+        EscribirFicheros.escribirFicheroLibros(libros);
+        libros = LeerFicheros.leerFicheroLibros();
+        String datos = "Se han encontrado " + libros.size() + " libros, se ha generado .dat y se ha leido el archivo, con la siguiente información:\n";
+        for (Libro libro : libros) {
+            datos += libro.toString() + "\n";
+        }
+        JOptionPane.showMessageDialog(this, datos);
+
     }
 
     private void bFiltrarPorCategoria(ActionEvent e) {

@@ -5,6 +5,8 @@
 package Main.Views.Usuarios;
 
 import Main.Controlers.UsuariosController;
+import Main.Controlers.dat.EscribirFicheros;
+import Main.Controlers.dat.LeerFicheros;
 import Main.Models.Usuario;
 
 import java.awt.*;
@@ -269,6 +271,7 @@ public class GestionarUsuariosView extends JFrame {
                 for (Usuario usuarioAux : usuarios) {
                     datos += usuarioAux.toString() + "\n";
                 }
+                generarDat(usuarios);
             } else {
                 JOptionPane.showMessageDialog(this, "No se han encontrado usuarios con esos datos");
             }
@@ -276,6 +279,17 @@ public class GestionarUsuariosView extends JFrame {
         }else {
             JOptionPane.showMessageDialog(this, errores);
         }
+    }
+
+    private void generarDat(ArrayList<Usuario> usuarios){
+        EscribirFicheros.escribirFicheroUsuarios(usuarios);
+        usuarios = LeerFicheros.leerFicheroUsuarios();
+        String datos = "Se ha generado un .dat con los usuarios encontrados\n";
+        datos += "Se ha leido el .dat y se muestran los usuarios encontrados:\n";
+        for (Usuario usuario : usuarios) {
+            datos += usuario.toString() + "\n";
+        }
+        JOptionPane.showMessageDialog(this, datos);
     }
 
     private void initComponents() {
