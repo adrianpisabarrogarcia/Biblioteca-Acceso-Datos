@@ -1,0 +1,72 @@
+<list>
+  <usuario id="1">
+    <nombre>Juan</nombre>
+    <apellidos>Perez</apellidos>
+    <fechaNacimiento>12/08/3893</fechaNacimiento>
+    <email>juanperez@gmail.com</email>
+    <direccion>Calle 1</direccion>
+  </usuario>
+  <usuario id="2">
+    <nombre>Maria</nombre>
+    <apellidos>Gomez</apellidos>
+    <fechaNacimiento>12/01/3891</fechaNacimiento>
+    <email>mariagomez@gmail.com</email>
+    <direccion>Calle 2</direccion>
+  </usuario>
+  <usuario id="3">
+    <nombre>Pedro</nombre>
+    <apellidos>Garcia</apellidos>
+    <fechaNacimiento>23/04/3902</fechaNacimiento>
+    <email>pedrogarcia@gmail.com</email>
+    <direccion>Calle 3</direccion>
+  </usuario>
+  <usuario id="4">
+    <nombre>Luis</nombre>
+    <apellidos>Lopez</apellidos>
+    <fechaNacimiento>02/03/3922</fechaNacimiento>
+    <email>luislopez@gmail.com</email>
+    <direccion>Calle 4</direccion>
+  </usuario>
+  <usuario id="5">
+    <nombre>Ana</nombre>
+    <apellidos>Martinez</apellidos>
+    <fechaNacimiento>04/06/3894</fechaNacimiento>
+    <email>anamartinez@gmail.com</email>
+    <direccion>Calle 5</direccion>
+  </usuario>
+  <usuario id="6">
+    <nombre>Jose</nombre>
+    <apellidos>Rodriguez</apellidos>
+    <fechaNacimiento>12/01/3891</fechaNacimiento>
+    <email>joserodriguez@gmail.com</email>
+    <direccion>Calle 6</direccion>
+  </usuario>
+  <usuario id="7">
+    <nombre>Antonio</nombre>
+    <apellidos>Sanchez</apellidos>
+    <fechaNacimiento>06/07/3922</fechaNacimiento>
+    <email>antoniosanchez@gmail.com</email>
+    <direccion>Calle 7</direccion>
+  </usuario>
+  <usuario id="8">
+    <nombre>Maria</nombre>
+    <apellidos>Gonzalez</apellidos>
+    <fechaNacimiento>06/05/3895</fechaNacimiento>
+    <email>mariagonzalez@gmail.com</email>
+    <direccion>Calle 8</direccion>
+  </usuario>
+  <usuario id="9">
+    <nombre>Francisco</nombre>
+    <apellidos>Fernandez</apellidos>
+    <fechaNacimiento>02/03/3890</fechaNacimiento>
+    <email>franciscofernandez@gmail.com</email>
+    <direccion>Calle 9</direccion>
+  </usuario>
+  <usuario id="10">
+    <nombre>Luis</nombre>
+    <apellidos>Hernandez</apellidos>
+    <fechaNacimiento>01/01/3901</fechaNacimiento>
+    <email>luishernandez@gmail.com</email>
+    <direccion>Calle 10</direccion>
+  </usuario>
+</list>

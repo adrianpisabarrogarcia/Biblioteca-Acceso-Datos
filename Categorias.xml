@@ -1,0 +1,22 @@
+<list>
+  <categoria id="1">
+    <nombre>Aventuras</nombre>
+    <descripcion>Libros de aventuras</descripcion>
+  </categoria>
+  <categoria id="2">
+    <nombre>Ciencia Ficción</nombre>
+    <descripcion>Libros de ciencia ficción</descripcion>
+  </categoria>
+  <categoria id="3">
+    <nombre>Fantasía</nombre>
+    <descripcion>Libros de fantasía</descripcion>
+  </categoria>
+  <categoria id="4">
+    <nombre>Romántica</nombre>
+    <descripcion>Libros de romántica</descripcion>
+  </categoria>
+  <categoria id="5">
+    <nombre>Terror</nombre>
+    <descripcion>Libros de terror</descripcion>
+  </categoria>
+</list>
