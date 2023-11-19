@@ -44,6 +44,11 @@ new FormModel {
 					"text": "Usuarios"
 					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "mUsuarios", true ) )
 				} )
+				add( new FormComponent( "javax.swing.JMenuItem" ) {
+					name: "mAlquileres"
+					"text": "Alquileres"
+					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "mAlquileres", true ) )
+				} )
 			}
 		}, new FormLayoutConstraints( null ) {
 			"location": new java.awt.Point( 0, 5 )

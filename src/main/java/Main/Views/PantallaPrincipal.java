@@ -4,6 +4,7 @@
 
 package Main.Views;
 
+import Main.Views.Alquileres.GestionarAlquileresView;
 import Main.Views.Categorias.GestionarCategoriasView;
 import Main.Views.Libros.GestionarLibrosView;
 import Main.Views.Usuarios.GestionarUsuariosView;
@@ -36,12 +37,18 @@ public class PantallaPrincipal extends JFrame {
         gestionarUsuariosView.setVisible(true);
     }
 
+    private void mAlquileres(ActionEvent e) {
+        GestionarAlquileresView gestionarAlquileresView = new GestionarAlquileresView();
+        gestionarAlquileresView.setVisible(true);
+    }
+
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents  @formatter:off
         menuBar1 = new JMenuBar();
         mCategorias = new JMenuItem();
         mLibros = new JMenuItem();
         mUsuarios = new JMenuItem();
+        mAlquileres = new JMenuItem();
         label1 = new JLabel();
         label2 = new JLabel();
 
@@ -66,6 +73,11 @@ public class PantallaPrincipal extends JFrame {
             mUsuarios.setText("Usuarios");
             mUsuarios.addActionListener(e -> mUsuarios(e));
             menuBar1.add(mUsuarios);
+
+            //---- mAlquileres ----
+            mAlquileres.setText("Alquileres");
+            mAlquileres.addActionListener(e -> mAlquileres(e));
+            menuBar1.add(mAlquileres);
         }
         setJMenuBar(menuBar1);
 
@@ -92,6 +104,7 @@ public class PantallaPrincipal extends JFrame {
     private JMenuItem mCategorias;
     private JMenuItem mLibros;
     private JMenuItem mUsuarios;
+    private JMenuItem mAlquileres;
     private JLabel label1;
     private JLabel label2;
     // JFormDesigner - End of variables declaration  //GEN-END:variables  @formatter:on

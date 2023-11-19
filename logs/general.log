@@ -1,80 +1,89 @@
-2022-12-16 18:49:23,100 INFO  [main] Main:105 - Generando XML de Alquileres, Libros, GestionarCategoriasView y Usuarios
-2022-12-16 18:49:23,220 INFO  [main] EscribirFicherosXML:155 - Fichero XML generado correctamente. AlquileresLibrosCategoriasUsuarios.xml
-2022-12-16 18:49:23,220 INFO  [main] Main:134 - XML de Alquileres, Libros, GestionarCategoriasView y Usuarios generado
-2022-12-16 18:49:23,220 INFO  [main] Main:81 - Generando XML de categorias y libros
-2022-12-16 18:49:23,224 INFO  [main] EscribirFicherosXML:116 - Fichero XML ListaCategoriasLibros.xml generado
-2022-12-16 18:49:23,224 INFO  [main] Main:101 - Generado XML de categorias y libros
-2022-12-16 18:49:23,224 INFO  [main] Main:73 - Generando XML GestionarCategoriasView
-2022-12-16 18:49:23,227 INFO  [main] EscribirFicherosXML:87 - Fichero XML Usuarios.xml generado
-2022-12-16 18:49:23,227 INFO  [main] Main:76 - XML GestionarCategoriasView generado
-2022-12-16 18:49:23,227 INFO  [main] Main:66 - Generando XML GestionarCategoriasView
-2022-12-16 18:49:23,229 INFO  [main] EscribirFicherosXML:63 - Fichero XML GestionarCategoriasView.xml generado
-2022-12-16 18:49:23,229 INFO  [main] Main:69 - XML GestionarCategoriasView generado
-2022-12-16 18:49:23,229 INFO  [main] Main:58 - Generando XML Libros
-2022-12-16 18:49:23,231 INFO  [main] EscribirFicherosXML:43 - Fichero XML ListaCategoriasLibros.xml generado
-2022-12-16 18:49:23,231 INFO  [main] Main:62 - XML Libros generado
-2022-12-16 18:49:23,258 INFO  [main] ExistDB:29 - Conectando a existdb
-2022-12-16 18:49:23,318 INFO  [main] ExistDB:35 - Conectado a existdb
-2022-12-16 18:49:23,345 INFO  [main] ExistDB:110 - Recurso: AlquileresLibrosCategoriasUsuarios.xml
-2022-12-16 18:49:23,345 INFO  [main] ExistDB:110 - Recurso: ListaCategoriasLibros.xml
-2022-12-16 18:49:23,345 INFO  [main] ExistDB:110 - Recurso: Libros.xml
-2022-12-16 18:49:23,345 INFO  [main] ExistDB:110 - Recurso: Categorias.xml
-2022-12-16 18:49:23,345 INFO  [main] ExistDB:110 - Recurso: Usuarios.xml
-2022-12-16 18:49:23,346 INFO  [main] ExistDB:110 - Recurso: GestionarCategoriasView.xml
-2022-12-16 18:49:23,346 INFO  [main] ExistDB:69 - Desconectando de existdb
-2022-12-16 18:49:23,348 INFO  [main] ExistDB:71 - Desconectado de existdb
-2022-12-16 18:49:23,348 INFO  [main] ExistDB:29 - Conectando a existdb
-2022-12-16 18:49:23,349 INFO  [main] ExistDB:35 - Conectado a existdb
-2022-12-16 18:49:23,355 INFO  [main] ExistDB:110 - Recurso: AlquileresLibrosCategoriasUsuarios.xml
-2022-12-16 18:49:23,355 INFO  [main] ExistDB:110 - Recurso: ListaCategoriasLibros.xml
-2022-12-16 18:49:23,356 INFO  [main] ExistDB:110 - Recurso: Libros.xml
-2022-12-16 18:49:23,356 INFO  [main] ExistDB:110 - Recurso: Categorias.xml
-2022-12-16 18:49:23,356 INFO  [main] ExistDB:110 - Recurso: Usuarios.xml
-2022-12-16 18:49:23,356 INFO  [main] ExistDB:110 - Recurso: GestionarCategoriasView.xml
-2022-12-16 18:49:23,356 INFO  [main] ExistDB:69 - Desconectando de existdb
-2022-12-16 18:49:23,357 INFO  [main] ExistDB:71 - Desconectado de existdb
-2022-12-16 18:49:23,358 INFO  [main] ExistDB:29 - Conectando a existdb
-2022-12-16 18:49:23,369 INFO  [main] ExistDB:35 - Conectado a existdb
-2022-12-16 18:49:23,375 INFO  [main] ExistDB:110 - Recurso: AlquileresLibrosCategoriasUsuarios.xml
-2022-12-16 18:49:23,375 INFO  [main] ExistDB:110 - Recurso: ListaCategoriasLibros.xml
-2022-12-16 18:49:23,376 INFO  [main] ExistDB:110 - Recurso: Libros.xml
-2022-12-16 18:49:23,376 INFO  [main] ExistDB:110 - Recurso: Categorias.xml
-2022-12-16 18:49:23,376 INFO  [main] ExistDB:110 - Recurso: Usuarios.xml
-2022-12-16 18:49:23,376 INFO  [main] ExistDB:110 - Recurso: GestionarCategoriasView.xml
-2022-12-16 18:49:23,376 INFO  [main] ExistDB:69 - Desconectando de existdb
-2022-12-16 18:49:23,377 INFO  [main] ExistDB:71 - Desconectado de existdb
-2022-12-16 18:49:23,378 INFO  [main] ExistDB:29 - Conectando a existdb
-2022-12-16 18:49:23,379 INFO  [main] ExistDB:35 - Conectado a existdb
-2022-12-16 18:49:23,383 INFO  [main] ExistDB:110 - Recurso: AlquileresLibrosCategoriasUsuarios.xml
-2022-12-16 18:49:23,383 INFO  [main] ExistDB:110 - Recurso: ListaCategoriasLibros.xml
-2022-12-16 18:49:23,383 INFO  [main] ExistDB:110 - Recurso: Libros.xml
-2022-12-16 18:49:23,383 INFO  [main] ExistDB:110 - Recurso: Categorias.xml
-2022-12-16 18:49:23,383 INFO  [main] ExistDB:110 - Recurso: Usuarios.xml
-2022-12-16 18:49:23,383 INFO  [main] ExistDB:110 - Recurso: GestionarCategoriasView.xml
-2022-12-16 18:49:23,383 INFO  [main] ExistDB:69 - Desconectando de existdb
-2022-12-16 18:49:23,384 INFO  [main] ExistDB:71 - Desconectado de existdb
-2022-12-16 18:49:23,385 INFO  [main] ExistDB:29 - Conectando a existdb
-2022-12-16 18:49:23,386 INFO  [main] ExistDB:35 - Conectado a existdb
-2022-12-16 18:49:23,390 INFO  [main] ExistDB:110 - Recurso: AlquileresLibrosCategoriasUsuarios.xml
-2022-12-16 18:49:23,390 INFO  [main] ExistDB:110 - Recurso: ListaCategoriasLibros.xml
-2022-12-16 18:49:23,391 INFO  [main] ExistDB:110 - Recurso: Libros.xml
-2022-12-16 18:49:23,391 INFO  [main] ExistDB:110 - Recurso: Categorias.xml
-2022-12-16 18:49:23,391 INFO  [main] ExistDB:110 - Recurso: Usuarios.xml
-2022-12-16 18:49:23,391 INFO  [main] ExistDB:110 - Recurso: GestionarCategoriasView.xml
-2022-12-16 18:49:23,391 INFO  [main] ExistDB:69 - Desconectando de existdb
-2022-12-16 18:49:23,392 INFO  [main] ExistDB:71 - Desconectado de existdb
-2022-12-16 18:49:24,243 INFO  [main] CategoriasController:122 - Listar categorias
-2022-12-16 18:49:24,243 INFO  [main] ExistDB:29 - Conectando a existdb
-2022-12-16 18:49:24,246 INFO  [main] ExistDB:35 - Conectado a existdb
-2022-12-16 18:49:24,339 INFO  [main] CategoriasController:140 - GestionarCategoriasView listadas
-2022-12-16 18:49:26,513 INFO  [AWT-EventQueue-0] CategoriasController:122 - Listar categorias
-2022-12-16 18:49:26,513 INFO  [AWT-EventQueue-0] ExistDB:29 - Conectando a existdb
-2022-12-16 18:49:26,516 INFO  [AWT-EventQueue-0] ExistDB:35 - Conectado a existdb
-2022-12-16 18:49:26,549 INFO  [AWT-EventQueue-0] CategoriasController:140 - GestionarCategoriasView listadas
-2022-12-16 18:49:26,551 INFO  [AWT-EventQueue-0] LibrosController:129 - Listar libros
-2022-12-16 18:49:26,551 INFO  [AWT-EventQueue-0] ExistDB:29 - Conectando a existdb
-2022-12-16 18:49:26,552 INFO  [AWT-EventQueue-0] ExistDB:35 - Conectado a existdb
-2022-12-16 18:49:26,570 INFO  [AWT-EventQueue-0] LibrosController:147 - Listado de libros hecho
-2022-12-16 18:49:28,815 INFO  [AWT-EventQueue-0] LibrosController:62 - Buscar libro
-2022-12-16 18:49:28,816 INFO  [AWT-EventQueue-0] ExistDB:29 - Conectando a existdb
-2022-12-16 18:49:28,819 INFO  [AWT-EventQueue-0] ExistDB:35 - Conectado a existdb
+2022-12-19 23:22:16,829 INFO  [main] Main:105 - Generando XML de Alquileres, Libros, GestionarCategoriasView y Usuarios
+2022-12-19 23:22:16,983 INFO  [main] EscribirFicherosXML:155 - Fichero XML generado correctamente. AlquileresLibrosCategoriasUsuarios.xml
+2022-12-19 23:22:16,983 INFO  [main] Main:134 - XML de Alquileres, Libros, GestionarCategoriasView y Usuarios generado
+2022-12-19 23:22:16,983 INFO  [main] Main:81 - Generando XML de categorias y libros
+2022-12-19 23:22:16,994 INFO  [main] EscribirFicherosXML:116 - Fichero XML ListaCategoriasLibros.xml generado
+2022-12-19 23:22:16,995 INFO  [main] Main:101 - Generado XML de categorias y libros
+2022-12-19 23:22:16,995 INFO  [main] Main:73 - Generando XML GestionarCategoriasView
+2022-12-19 23:22:16,998 INFO  [main] EscribirFicherosXML:87 - Fichero XML Usuarios.xml generado
+2022-12-19 23:22:16,999 INFO  [main] Main:76 - XML GestionarCategoriasView generado
+2022-12-19 23:22:16,999 INFO  [main] Main:66 - Generando XML GestionarCategoriasView
+2022-12-19 23:22:17,001 INFO  [main] EscribirFicherosXML:63 - Fichero XML GestionarCategoriasView.xml generado
+2022-12-19 23:22:17,001 INFO  [main] Main:69 - XML GestionarCategoriasView generado
+2022-12-19 23:22:17,001 INFO  [main] Main:58 - Generando XML Libros
+2022-12-19 23:22:17,005 INFO  [main] EscribirFicherosXML:43 - Fichero XML ListaCategoriasLibros.xml generado
+2022-12-19 23:22:17,005 INFO  [main] Main:62 - XML Libros generado
+2022-12-19 23:22:17,042 INFO  [main] ExistDB:29 - Conectando a existdb
+2022-12-19 23:22:17,169 INFO  [main] ExistDB:35 - Conectado a existdb
+2022-12-19 23:22:17,251 INFO  [main] ExistDB:110 - Recurso: AlquileresLibrosCategoriasUsuarios.xml
+2022-12-19 23:22:17,251 INFO  [main] ExistDB:110 - Recurso: ListaCategoriasLibros.xml
+2022-12-19 23:22:17,251 INFO  [main] ExistDB:110 - Recurso: Libros.xml
+2022-12-19 23:22:17,251 INFO  [main] ExistDB:110 - Recurso: Categorias.xml
+2022-12-19 23:22:17,251 INFO  [main] ExistDB:110 - Recurso: Usuarios.xml
+2022-12-19 23:22:17,251 INFO  [main] ExistDB:110 - Recurso: GestionarCategoriasView.xml
+2022-12-19 23:22:17,251 INFO  [main] ExistDB:69 - Desconectando de existdb
+2022-12-19 23:22:17,263 INFO  [main] ExistDB:71 - Desconectado de existdb
+2022-12-19 23:22:17,263 INFO  [main] ExistDB:29 - Conectando a existdb
+2022-12-19 23:22:17,266 INFO  [main] ExistDB:35 - Conectado a existdb
+2022-12-19 23:22:17,283 INFO  [main] ExistDB:110 - Recurso: AlquileresLibrosCategoriasUsuarios.xml
+2022-12-19 23:22:17,283 INFO  [main] ExistDB:110 - Recurso: ListaCategoriasLibros.xml
+2022-12-19 23:22:17,283 INFO  [main] ExistDB:110 - Recurso: Libros.xml
+2022-12-19 23:22:17,283 INFO  [main] ExistDB:110 - Recurso: Categorias.xml
+2022-12-19 23:22:17,283 INFO  [main] ExistDB:110 - Recurso: Usuarios.xml
+2022-12-19 23:22:17,283 INFO  [main] ExistDB:110 - Recurso: GestionarCategoriasView.xml
+2022-12-19 23:22:17,283 INFO  [main] ExistDB:69 - Desconectando de existdb
+2022-12-19 23:22:17,287 INFO  [main] ExistDB:71 - Desconectado de existdb
+2022-12-19 23:22:17,287 INFO  [main] ExistDB:29 - Conectando a existdb
+2022-12-19 23:22:17,291 INFO  [main] ExistDB:35 - Conectado a existdb
+2022-12-19 23:22:17,304 INFO  [main] ExistDB:110 - Recurso: AlquileresLibrosCategoriasUsuarios.xml
+2022-12-19 23:22:17,305 INFO  [main] ExistDB:110 - Recurso: ListaCategoriasLibros.xml
+2022-12-19 23:22:17,305 INFO  [main] ExistDB:110 - Recurso: Libros.xml
+2022-12-19 23:22:17,305 INFO  [main] ExistDB:110 - Recurso: Categorias.xml
+2022-12-19 23:22:17,305 INFO  [main] ExistDB:110 - Recurso: Usuarios.xml
+2022-12-19 23:22:17,305 INFO  [main] ExistDB:110 - Recurso: GestionarCategoriasView.xml
+2022-12-19 23:22:17,305 INFO  [main] ExistDB:69 - Desconectando de existdb
+2022-12-19 23:22:17,308 INFO  [main] ExistDB:71 - Desconectado de existdb
+2022-12-19 23:22:17,308 INFO  [main] ExistDB:29 - Conectando a existdb
+2022-12-19 23:22:17,311 INFO  [main] ExistDB:35 - Conectado a existdb
+2022-12-19 23:22:17,318 INFO  [main] ExistDB:110 - Recurso: AlquileresLibrosCategoriasUsuarios.xml
+2022-12-19 23:22:17,318 INFO  [main] ExistDB:110 - Recurso: ListaCategoriasLibros.xml
+2022-12-19 23:22:17,318 INFO  [main] ExistDB:110 - Recurso: Libros.xml
+2022-12-19 23:22:17,318 INFO  [main] ExistDB:110 - Recurso: Categorias.xml
+2022-12-19 23:22:17,319 INFO  [main] ExistDB:110 - Recurso: Usuarios.xml
+2022-12-19 23:22:17,319 INFO  [main] ExistDB:110 - Recurso: GestionarCategoriasView.xml
+2022-12-19 23:22:17,319 INFO  [main] ExistDB:69 - Desconectando de existdb
+2022-12-19 23:22:17,321 INFO  [main] ExistDB:71 - Desconectado de existdb
+2022-12-19 23:22:17,321 INFO  [main] ExistDB:29 - Conectando a existdb
+2022-12-19 23:22:17,323 INFO  [main] ExistDB:35 - Conectado a existdb
+2022-12-19 23:22:17,334 INFO  [main] ExistDB:110 - Recurso: AlquileresLibrosCategoriasUsuarios.xml
+2022-12-19 23:22:17,334 INFO  [main] ExistDB:110 - Recurso: ListaCategoriasLibros.xml
+2022-12-19 23:22:17,334 INFO  [main] ExistDB:110 - Recurso: Libros.xml
+2022-12-19 23:22:17,334 INFO  [main] ExistDB:110 - Recurso: Categorias.xml
+2022-12-19 23:22:17,334 INFO  [main] ExistDB:110 - Recurso: Usuarios.xml
+2022-12-19 23:22:17,334 INFO  [main] ExistDB:110 - Recurso: GestionarCategoriasView.xml
+2022-12-19 23:22:17,334 INFO  [main] ExistDB:69 - Desconectando de existdb
+2022-12-19 23:22:17,337 INFO  [main] ExistDB:71 - Desconectado de existdb
+2022-12-19 23:22:18,110 INFO  [main] CategoriasController:122 - Listar categorias
+2022-12-19 23:22:18,111 INFO  [main] ExistDB:29 - Conectando a existdb
+2022-12-19 23:22:18,115 INFO  [main] ExistDB:35 - Conectado a existdb
+2022-12-19 23:22:18,145 DEBUG [main] ExistDB:157 - for $x in doc('Categorias.xml')//categoria return $x
+2022-12-19 23:22:18,259 INFO  [main] CategoriasController:140 - GestionarCategoriasView listadas
+2022-12-19 23:23:09,102 INFO  [AWT-EventQueue-0] CategoriasController:122 - Listar categorias
+2022-12-19 23:23:09,102 INFO  [AWT-EventQueue-0] ExistDB:29 - Conectando a existdb
+2022-12-19 23:23:09,120 INFO  [AWT-EventQueue-0] ExistDB:35 - Conectado a existdb
+2022-12-19 23:23:09,124 DEBUG [AWT-EventQueue-0] ExistDB:157 - for $x in doc('Categorias.xml')//categoria return $x
+2022-12-19 23:23:09,145 INFO  [AWT-EventQueue-0] CategoriasController:140 - GestionarCategoriasView listadas
+2022-12-19 23:23:31,215 INFO  [AWT-EventQueue-0] CategoriasController:122 - Listar categorias
+2022-12-19 23:23:31,215 INFO  [AWT-EventQueue-0] ExistDB:29 - Conectando a existdb
+2022-12-19 23:23:31,224 INFO  [AWT-EventQueue-0] ExistDB:35 - Conectado a existdb
+2022-12-19 23:23:31,234 DEBUG [AWT-EventQueue-0] ExistDB:157 - for $x in doc('Categorias.xml')//categoria return $x
+2022-12-19 23:23:31,247 INFO  [AWT-EventQueue-0] CategoriasController:140 - GestionarCategoriasView listadas
+2022-12-19 23:23:31,249 INFO  [AWT-EventQueue-0] LibrosController:129 - Listar libros
+2022-12-19 23:23:31,250 INFO  [AWT-EventQueue-0] ExistDB:29 - Conectando a existdb
+2022-12-19 23:23:31,255 INFO  [AWT-EventQueue-0] ExistDB:35 - Conectado a existdb
+2022-12-19 23:23:31,271 DEBUG [AWT-EventQueue-0] ExistDB:157 - for $x in doc('Libros.xml')//libro return $x
+2022-12-19 23:23:31,301 INFO  [AWT-EventQueue-0] LibrosController:147 - Listado de libros hecho
+2022-12-19 23:24:02,111 INFO  [AWT-EventQueue-0] UsuariosController:137 - Listar usuarios
+2022-12-19 23:24:02,112 INFO  [AWT-EventQueue-0] ExistDB:29 - Conectando a existdb
+2022-12-19 23:24:02,120 INFO  [AWT-EventQueue-0] ExistDB:35 - Conectado a existdb
+2022-12-19 23:24:02,136 DEBUG [AWT-EventQueue-0] ExistDB:157 - for $x in doc('Usuarios.xml')//usuario return $x
